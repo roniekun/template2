@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  height: auto;
+}
+
+.body {
+  width: 100%;
+  padding: 5%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  position: relative;
+}
+
+.sectionOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  position: relative;
+}
+
+.about{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  gap:50px;
+}
+
+.about > h1 {
+  font-size: 40px;
+  font-weight: 450;
+}
+
+.sectionOne > h4 {
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.imageContainer {
+  height: auto;
+  display: flex;
+  width: 90%;
+  height: auto;
+  padding: 5%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.about > p {
+  font-size: 16px;
+  line-height: 1.5em;
+  font-size: 400;
+  align-self: flex-start;
+  text-align: justify;
+}
+
+.imageContainer > img {
+  width: 40%;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .sectionOne{
+    gap:20px;
+  }
+  .about{
+    gap:20px;
+  }
+
+  .about > h1 {
+    font-size: 28px;
+  }
+
+  .about > h4 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .imageContainer{
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .imageContainer {
+    gap: 20px;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .imageContainer > p {
+    width: 100%;
+  }
+
+  .imageContainer img {
+    width: 100%;
+  }
+}
+
+.sectionTwo {
+  min-height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 450;
+}
+
+.sectionThree {
+  min-height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 450;
+
+}
