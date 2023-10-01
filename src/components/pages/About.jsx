@@ -32,8 +32,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavb
              excepturi placeat natus deleniti quas a ratione enim, sunt aspernatur dicta quam praesentium tempore?
              Illo fugiat perspiciatis magni nulla, numquam enim velit cumque aliquam maiores vero excepturi, 
              delectus obcaecati ducimus magnam pariatur, modi non quas ea. Lorem ipsum dolor sit amet consectetur 
-             adipisicing elit. Aperiam maxime quisquam natus. Quos iure distinctio veniam, 
-             excepturi placeat natus deleniti quas a ratione enim, sunt aspernatur dicta quam praesentium tempore?
+             adipisicing elit.
              </p>
              <h1>I&apos;m more than a photographer;<br /> I'm a visual storyteller. 
               </h1>

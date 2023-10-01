@@ -12,6 +12,7 @@ import PageModal from './assets/Page-modal';
 import Preloader from './components/Preloader';
 import Pricing from './components/pages/Pricing';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
+import { DataProvider, DataContext } from './context/DataContext';
 import Lenis from '@studio-freight/lenis'
 import Portfolio from './components/pages/Portfolio';
 
@@ -19,7 +20,6 @@ const App = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
   const [isMediumScreen, setIsMediumScreen] = useState (window.innerWidth <= 1024 && window.innerWidth > 600)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
-  const [showNavbar, setShowNavbar] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,9 +31,8 @@ const App = () => {
   }, [])
 
   const lenis = new Lenis()
-  //smooth scroll
-  lenis.on('scroll', (e) => {
-    console.log(e)
+  lenis.on('scroll', () => {
+    console.log("smooth scroll active")
   })
   function raf(time) {
     lenis.raf(time)
@@ -50,7 +49,7 @@ const App = () => {
     setIsSmallScreen(screenWidth <= 600);
     setIsMediumScreen(screenWidth <= 1024 && screenWidth > 600)
 
-  }, [isDesktop, isSmallScreen, showNavbar, isMediumScreen]);
+  }, [isDesktop, isSmallScreen, isMediumScreen]);
 
     const handleScroll = useCallback(() => {
 
@@ -76,12 +75,11 @@ const App = () => {
 
   return (
     <ThemeProvider>
+      <DataProvider>
       <BrowserRouter>
-        <ThemeContext.Consumer>
-          {({ theme }) => {
-            return (
-              
-              <div className={styles.appContainer} id={`component-${theme}`}>
+      <DataContext.Consumer>
+        {({showNavbar,setShowNavbar}) => (
+              <div className={styles.appContainer}>
                  { isSmallScreen &&
               <div className={styles.menuWrapper}>
               <Menu showNavbar={showNavbar} 
@@ -108,6 +106,8 @@ const App = () => {
                 />}
   
                 <Routes>
+                  {/* <Route render={()=> (            
+                    <> */}
                   <Route path='*' 
                   element={<Notfound />} />
 
@@ -140,7 +140,6 @@ const App = () => {
                   isLoading={isLoading} />} 
                   />
 
-                  {/* <Route path='/blog' element={<Blog isSmallScreen={isSmallScreen}  showNavbar={showNavbar} />} /> */}
                  
                   <Route path='/portfolio' 
                   element={<Portfolio
@@ -169,13 +168,15 @@ const App = () => {
                   showNavbar={showNavbar}
                   isMediumScreen={isMediumScreen}
                   isLoading={isLoading} />} />
+                  {/* </>
+                  )}/> */}
                 </Routes>
         
               </div>
-            );
-          }}
-        </ThemeContext.Consumer>
+                )}
+                </DataContext.Consumer>
         </BrowserRouter>
+        </DataProvider>
     </ThemeProvider>
   );
 };

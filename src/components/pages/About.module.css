@@ -52,9 +52,9 @@
 
 .imageContainer {
   height: auto;
+  min-height: 600px;
   display: flex;
   width: 90%;
-  height: auto;
   padding: 5%;
   flex-direction: row;
   justify-content: space-evenly;
@@ -64,16 +64,19 @@
 }
 
 .about > p {
-  font-size: 16px;
-  line-height: 1.5em;
-  font-size: 400;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 450;
+  width: 90%;
   align-self: flex-start;
   text-align: justify;
 }
 
 .imageContainer > img {
-  width: 40%;
-  object-fit: contain;
+  width: 400px;
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 4/5;
 }
 
 @media (max-width: 1024px) {

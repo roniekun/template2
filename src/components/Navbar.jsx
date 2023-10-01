@@ -1,6 +1,5 @@
 import styles from './styles/Navbar.module.css';
 import Socials from '../assets/icons/Socials';
-import { ThemeContext } from '../context/ThemeContext';
 import { useEffect, useRef } from 'react';
 import NavbarLinks from './pages/Navlinks';
 import { gsap } from 'gsap';
@@ -19,7 +18,6 @@ const Navbar = ({ showNavbar,
   useEffect(() => {
     const itemAnim = {
       x: showNavbar ? "0%" : "-160%",
-      // x: showNavbar ? 0 : isSmallScreen ? '0' : '-1000',
       duration: .8,
     };
     const containerAnim = {
@@ -34,9 +32,6 @@ const Navbar = ({ showNavbar,
   }, [showNavbar,  isSmallScreen]);
 
   return (
-    <>
-      <ThemeContext.Consumer>
-        {(themeContext) => (
           <nav 
           ref={navbarContainerRef}
           className={`${styles.navbarContainer}`}
@@ -88,9 +83,6 @@ const Navbar = ({ showNavbar,
             <h3 className={styles.navFooter}>www.yourcustomdomainname.com</h3>
             </div>
           </nav>
-        )}
-      </ThemeContext.Consumer>
-    </>
   );
 };
 export default Navbar;

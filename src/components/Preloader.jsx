@@ -21,7 +21,9 @@ const Preloader = ({custom, isLoading}) => {
       onComplete: () => {
         // Scroll to the top when the animation completes
         document.body.style.overflow = 'auto';
-
+        container.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // Hide the container after the animation
       // Kill the animation to prevent any lingering effects
       tl.kill();
       },
@@ -36,20 +38,13 @@ const Preloader = ({custom, isLoading}) => {
     tl.to(cover,{y:0, delay: isLoading? 2 : 1, ease: 'linear', duration:1});
 
     tl.to(container, {
-      y: -initialPosition.height*1.2,
-       onComplete: () => {
-        container.style.display = 'none'; // Hide the container after the animation
-    }
+      y: -initialPosition.height*1.5,
+
     });
     tl.fromTo(filler, {borderBottomLeftRadius: '100%',borderBottomRightRadius: '100%'},
                 {borderBottomLeftRadius: '0%',borderBottomRightRadius: '0%'}, '-=.1' );
     gsap.to(logo, { y: initialPosition.height, scale: 1.1 }, '-=.5');
 
-        return () => {
-      // Enable scroll in case the component is unmounted before the animation completes
-      document.body.style.overflow = 'auto';
-
-    };
   }, []);
 
   return (

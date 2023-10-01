@@ -31,8 +31,7 @@ const NavbarLinks = ({
   const navbarlinkRefs = links.map(() => useRef(null));
 
   useEffect(() => {
-    if (showNavbar ) {
-     
+    if (showNavbar) {
       navbarlinkRefs.forEach((navbarlinkRef, index) => {
         gsap.fromTo(
           navbarlinkRef.current, 
@@ -47,11 +46,14 @@ const NavbarLinks = ({
           );
       });
     }
-  }, [showNavbar, navbarlinkRefs]);
+  }, [showNavbar]);
 
   const handleLinkClick = () => {
-    window.scrollTo({ top: 0 });
-    setShowNavbar(false);
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+      setShowNavbar(!showNavbar);
+    }, 300);
+    
   };
   return (
     <div style={{
