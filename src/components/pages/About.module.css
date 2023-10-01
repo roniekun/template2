@@ -69,7 +69,6 @@
   font-weight: 450;
   width: 90%;
   align-self: flex-start;
-  text-align: justify;
 }
 
 .imageContainer > img {
@@ -87,6 +86,9 @@
     gap:20px;
   }
 
+  .about > p{
+    width: 100%;
+  }
   .about > h1 {
     font-size: 28px;
   }
