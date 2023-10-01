@@ -34,8 +34,7 @@ const Navbar = ({ showNavbar,
   return (
           <nav 
           ref={navbarContainerRef}
-          className={`${styles.navbarContainer}`}
-          id={`component-${themeContext.theme}`}>
+          className={`${styles.navbarContainer}`}>
             
           <div ref={navItemsRef}
               className={styles.navbarWrapper}>

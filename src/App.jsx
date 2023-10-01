@@ -20,15 +20,6 @@ const App = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
   const [isMediumScreen, setIsMediumScreen] = useState (window.innerWidth <= 1024 && window.innerWidth > 600)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-      
-  setTimeout(() => {
-    setLoading (false);
-  }, 3000);
-
-  }, [])
 
   const lenis = new Lenis()
   lenis.on('scroll', () => {
@@ -78,7 +69,7 @@ const App = () => {
       <DataProvider>
       <BrowserRouter>
       <DataContext.Consumer>
-        {({showNavbar,setShowNavbar}) => (
+        {({showNavbar,setShowNavbar,setLoading,isLoading}) => (
               <div className={styles.appContainer}>
                  { isSmallScreen &&
               <div className={styles.menuWrapper}>
