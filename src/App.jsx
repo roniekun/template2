@@ -4,14 +4,13 @@ import styles from './App.module.css';
 import About from './components/pages/About';
 import Community from './components/pages/Community';
 import Contact from './components/pages/Contact';
+import { AnimatePresence } from 'framer-motion';
 import Home from './components/pages/Home';
 import Menu from './assets/buttons/Menu';
 import Navbar from './components/Navbar';
 import Notfound from './components/Notfound';
 import PageModal from './assets/Page-modal';
-import Preloader from './components/Preloader';
 import Pricing from './components/pages/Pricing';
-import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 import { DataProvider, DataContext } from './context/DataContext';
 import Lenis from '@studio-freight/lenis'
 import Portfolio from './components/pages/Portfolio';
@@ -65,7 +64,6 @@ const App = () => {
   }, [handleResize, handleScroll]);
 
   return (
-    <ThemeProvider>
       <DataProvider>
       <BrowserRouter>
       <DataContext.Consumer>
@@ -95,7 +93,7 @@ const App = () => {
                   setShowNavbar={setShowNavbar}
                   
                 />}
-  
+            <AnimatePresence ExitBeforeEnter>
                 <Routes>
                   {/* <Route render={()=> (            
                     <> */}
@@ -162,13 +160,12 @@ const App = () => {
                   {/* </>
                   )}/> */}
                 </Routes>
-        
+         </AnimatePresence>
               </div>
                 )}
                 </DataContext.Consumer>
         </BrowserRouter>
         </DataProvider>
-    </ThemeProvider>
   );
 };
 

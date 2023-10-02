@@ -4,7 +4,6 @@ import { ReactComponent as FacebookIcon } from './svg/facebook.svg';
 import { ReactComponent as InstagramIcon } from './svg/instagram.svg';
 import { ReactComponent as GithubIcon } from './svg/github.svg';
 import { ReactComponent as LinkedinIcon } from './svg/linkedin.svg';
-import { ThemeContext } from '../../context/ThemeContext';
 
 const Socials = ({ 
       displayNames, 
@@ -52,8 +51,7 @@ const Socials = ({
   ];
 
   return (
-    <ThemeContext.Consumer>
-      {({ theme }) => (
+  
         <div className={styles.socialLinksContainer} 
         style={{...contactContainer,...footerContainer}}>
           {socialMediaLinks.map((link) => (
@@ -62,7 +60,6 @@ const Socials = ({
               key={link.name}
               className={styles.iconContainer}>  
                 <a
-                  id={`component-${theme}`}
                   href={link.url}
                   key={link.name}
                   target="_blank"
@@ -81,8 +78,7 @@ const Socials = ({
             </div>
           ))}
         </div>
-      )}
-    </ThemeContext.Consumer>
+
   );
 };
 

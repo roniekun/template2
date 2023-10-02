@@ -1,26 +1,31 @@
-import React from 'react'
+import {useRef} from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 import styles from './Home.module.css'
 import Faq from '../../assets/faq/Faq'
 import Cta from '../../assets/call-to-actions/Cta'
 import Preloader from '../Preloader'
+import { AnimatePresence, motion } from "framer-motion"
+import { useInView } from 'react-intersection-observer';
+
 const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar, isLoading}) => {
 
-// EMAIL CONFIG   // EMAIL CONFIG   // EMAIL CONFIG   // EMAIL CONFIG   // EMAIL CONFIG
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
+  });
 
-  const email = 'roniebenitez01@gmail.com';
-  const subject = 'Project Request';
-
-  const handleClick = () => {
-    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-    window.location.href = mailtoUrl;
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
-
   return (
     <>
     <div><Preloader isLoading= {isLoading} custom={'Home'}/></div>
-    <div className={styles.container}>
+    <motion.div 
+    exit={{opacity:0}}
+    transition={{duration:.5}}
+    className={styles.container}>
       <Header isDesktop={isDesktop}
               isMediumScreen={isMediumScreen}
               isSmallScreen={isSmallScreen}
@@ -74,19 +79,27 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar
 
         <div className={styles.sectionFive}>
         </div>
-
-        <div className={styles.sectionSix}>
+  
+        <motion.div 
+        ref={ref}
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+        variants={variants}
+        transition={{ duration: 0.3 }}
+        exit={{y: -20}}
+        className={styles.sectionSix}>
           <h1>Frequently Asked Questions: </h1> <p>(This is for Demo purpose only)</p>
           <br />
-          <Faq/>
-        </div>
+          <Faq />
+        </motion.div>
+
         <div className={styles.sectionSeven}>
          <h1>Thank you for your support :)</h1>
         </div>
       </div>
       <Cta isSmallScreen={isSmallScreen}/>
       <Footer/>
-    </div>
+    </motion.div>
     </>
   )
 }
