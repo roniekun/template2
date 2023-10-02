@@ -35,15 +35,15 @@ const Preloader = ({custom, isLoading}) => {
       { opacity: 1, scale: 1, duration: .3 }
     );
 
-    tl.to(cover,{y:0, delay: isLoading? 2 : 1, ease: 'linear', duration:1});
+    tl.to(cover,{y:0, delay: isLoading? 1 : .5, ease: 'linear', duration:.5});
 
     tl.to(container, {
       y: -initialPosition.height*1.5,
 
     });
+    tl.to(logo, { scale: 1.1 },'-=1');
     tl.fromTo(filler, {borderBottomLeftRadius: '100%',borderBottomRightRadius: '100%'},
-                {borderBottomLeftRadius: '0%',borderBottomRightRadius: '0%'}, '-=.1' );
-    gsap.to(logo, { y: initialPosition.height, scale: 1.1 }, '-=.5');
+                {borderBottomLeftRadius: '0%',borderBottomRightRadius: '0%'} );
 
   }, []);
 
@@ -54,7 +54,7 @@ const Preloader = ({custom, isLoading}) => {
       <div className={styles.logoContainer}>
       <div ref={coverRef} className={styles.cover}></div>
       <h5 className={styles.preloaderLogo} ref={logoRef}>
-      {isLoading ? 'Welcome!' : `• ${custom} •`}
+      {isLoading ? 'Welcome!' : `${custom}`}
       </h5>
       </div>
       <div ref={fillerRef} className={styles.fill}></div>

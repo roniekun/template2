@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navlinks.module.css';
 
 const NavbarLinks = ({
@@ -18,6 +18,7 @@ const NavbarLinks = ({
   }) => {
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const links = [
     { to: '/', text: 'home ' },
@@ -48,11 +49,12 @@ const NavbarLinks = ({
     }
   }, [showNavbar]);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (linkTo) => {
     setTimeout(() => {
       window.scrollTo({ top: 0 });
       setShowNavbar(!showNavbar);
-    }, 300);
+      navigate(linkTo);
+    }, 500);
     
   };
   return (
@@ -72,9 +74,9 @@ const NavbarLinks = ({
                     ...footerNavbarLink,
                    ...headerNavbarLink}}
             ref={navbarlinkRefs[index]}
-            onClick={() => handleLinkClick()}
+            onClick={() => handleLinkClick(link.to)}
             className={`${styles.navbarLink} ${location.pathname === link.to ? styles.activeLink : ''}`}
-            to={link.to}>
+           >
             {link.text}
           </NavLink>
         </div>
