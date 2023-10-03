@@ -5,8 +5,7 @@ const PageWrapper = ({ children }) => {
   const pageVariants = {
     initial: {
       opacity: 0,
-      delay: 5,
-      y: 20,
+      y: 10,
     },
     animate: {
       opacity: 1,
