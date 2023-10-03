@@ -18,11 +18,11 @@ const Navbar = ({ showNavbar,
   useEffect(() => {
     const itemAnim = {
       x: showNavbar ? "0%" : "-160%",
-      duration: .8,
+      duration: .3,
     };
     const containerAnim = {
       x: showNavbar ? '0%' : '-100%',
-      duration:.8,
+      duration:.3,
     };
   
     gsap.to(navbarContainerRef.current, containerAnim);
