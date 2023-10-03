@@ -22,7 +22,7 @@ const App = () => {
 
   const lenis = new Lenis()
   lenis.on('scroll', () => {
-    console.log("smooth scroll active")
+    console.log('ls')
   })
   function raf(time) {
     lenis.raf(time)
@@ -94,6 +94,7 @@ const App = () => {
                   
                 />}
             <AnimatePresence ExitBeforeEnter>
+              {/* <Preloader/> */}
                 <Routes>
                   {/* <Route render={()=> (            
                     <> */}
