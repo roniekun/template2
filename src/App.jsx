@@ -94,7 +94,6 @@ const App = () => {
                   
                 />}
             <AnimatePresence ExitBeforeEnter>
-              {/* <Preloader/> */}
                 <Routes>
                   {/* <Route render={()=> (            
                     <> */}

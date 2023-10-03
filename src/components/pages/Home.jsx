@@ -4,6 +4,7 @@ import Header from '../Header'
 import styles from './Home.module.css'
 import Faq from '../../assets/faq/Faq'
 import Cta from '../../assets/call-to-actions/Cta'
+import PageWrapper from '../../PageWrapper'
 import Preloader from '../Preloader'
 import { AnimatePresence, motion } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
@@ -21,10 +22,7 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar
   };
   return (
     <>
-    <div><Preloader isLoading= {isLoading} custom={'Home'}/></div>
-    <motion.div 
-    exit={{opacity:0}}
-    transition={{duration:.5}}
+    <div 
     className={styles.container}>
       <Header isDesktop={isDesktop}
               isMediumScreen={isMediumScreen}
@@ -32,7 +30,7 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar
               setShowNavbar={setShowNavbar}
               setColor={'black'}
               showNavbar={showNavbar}/>
-
+      <PageWrapper>
       <div className={styles.body}>
         <div className={styles.sectionOne}>
         <h1 className={styles.title}>
@@ -98,8 +96,10 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar
         </div>
       </div>
       <Cta isSmallScreen={isSmallScreen}/>
+      </PageWrapper>
       <Footer/>
-    </motion.div>
+    </div>
+   
     </>
   )
 }

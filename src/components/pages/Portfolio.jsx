@@ -2,12 +2,11 @@ import React from 'react'
 import styles from './Portfolio.module.css'
 import Header from '../Header'
 import Footer from '../Footer'
-import Preloader from '../Preloader'
+import PageWrapper from '../../PageWrapper'
 
 const Portfolio = ({isDesktop,setShowNavbar, isMediumScreen, isSmallScreen,showNavbar,isLoading}) => {
   return (
    <>
-    <div><Preloader custom={'Portfolio'}/></div>
     <div className={styles.container}>
           <Header isDesktop={isDesktop}
               isMediumScreen={isMediumScreen}
@@ -15,9 +14,11 @@ const Portfolio = ({isDesktop,setShowNavbar, isMediumScreen, isSmallScreen,showN
               setShowNavbar={setShowNavbar}
               setColor={'black'}
               showNavbar={showNavbar}/>
+    <PageWrapper>
     <div className={styles.body}>
       <h1>this is Portfolio</h1>
     </div>
+    </PageWrapper>
      <Footer/>
     </div>
     </>

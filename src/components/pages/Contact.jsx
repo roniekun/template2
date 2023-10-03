@@ -3,15 +3,12 @@ import styles from './Contact.module.css'
 import ContactForm from '../../assets/contact-form/Contactform'
 import Header from '../Header'
 import Footer from '../Footer'
-import Preloader from '../Preloader'
+import PageWrapper from '../../PageWrapper'
 import Socials from '../../assets/icons/Socials'
 
 const Contact = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavbar, isLoading}) => {
   return (
   <>
-  <div >
-  <Preloader isLoading={isLoading} custom={'contact'}/>
-  </div>
     <div className={styles.container}>
          <Header isDesktop={isDesktop}
               isMediumScreen={isMediumScreen}
@@ -19,6 +16,8 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNa
               setShowNavbar={setShowNavbar}
               setColor={'black'}
               showNavbar={showNavbar}/>
+   <PageWrapper>
+
     <div className={styles.body}>
      <h2 className={styles.heading}>Let me know about the project <br /> you are working with.</h2>
 
@@ -53,6 +52,7 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNa
    
        </div>
     </div>
+    </PageWrapper>
     <Footer/>
     </div>
     </>

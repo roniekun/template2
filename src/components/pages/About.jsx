@@ -3,14 +3,12 @@ import styles from './About.module.css'
 import Header from '../Header'
 import Footer from '../Footer'
 import Cta from '../../assets/call-to-actions/Cta'
-import Preloader from '../Preloader'
+import PageWrapper from '../../PageWrapper'
 
 const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavbar, isLoading}) => {
   return (
     <>
-    <div>
-    <Preloader custom={'About'}/>
-    </div>
+
     <div className={styles.container}>
            <Header isDesktop={isDesktop}
               isMediumScreen={isMediumScreen}
@@ -18,6 +16,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavb
               setShowNavbar={setShowNavbar}
               setColor={'black'}
               showNavbar={showNavbar}/>
+      <PageWrapper>
       <div className={styles.body}>
         <div className={styles.sectionOne}>
 
@@ -51,6 +50,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavb
         ><h1>Awards</h1></div>
       </div>
         <Cta/>
+      </PageWrapper>
       <Footer/>
     </div>
     </>
