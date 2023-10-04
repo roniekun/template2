@@ -21,9 +21,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavb
         <div className={styles.sectionOne}>
 
            <h4> Bringing your events to life through the art of storytelling.</h4>
-         
-           <div className={styles.imageContainer}>
-            <div className={styles.about}>
+           <div className={styles.about}>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Illo fugiat perspiciatis magni nulla, numquam enim velit cumque aliquam maiores vero excepturi, 
              delectus obcaecati ducimus magnam pariatur, modi non quas ea. Lorem ipsum dolor sit amet consectetur 
@@ -36,6 +34,8 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavb
              <h1>I&apos;m more than a photographer;<br /> I'm a visual storyteller. 
               </h1>
              </div>
+         
+           <div className={styles.imageContainer}>
            
             <img className={styles.image}src="images/headshot.jpg" 
                         title="Image from Andrew Wise from Unsplash" 

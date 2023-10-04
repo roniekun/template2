@@ -6,10 +6,28 @@
 }
 
 .body{
+    flex-direction: column;
     width: 100%;
     padding: 5%;
     display: flex;
     justify-content: center;
+    align-items: center;
     height: auto;
-    min-height: 1000px;
+    gap: 50px;
+}
+
+.imageContainer{
+
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    object-fit: contain;
+}
+
+.imageContainer > img{
+    
+    width: 100%;
+    aspect-ratio: 16/9;
+    opacity: 0;
+
 }
