@@ -11,11 +11,11 @@ const Menu = ({ showNavbar, setShowNavbar,color }) => {
 
   return (
         <div 
-        style={{borderBottom: `1px solid ${color}`, paddingInline: '.5em'}}  
+        style={{borderBottom: `1px solid ${color}`}}  
         className={styles.container} 
         onClick={handleClick}>
          <span style={{color: color, fontFamily: 'Roboto Mono, monospace',
-            textTransform: 'uppercase', fontSize: '11px'}}>
+            textTransform: 'uppercase', fontSize: '11px', userSelect: 'none'}}>
             Menu</span>
         </div>
   );

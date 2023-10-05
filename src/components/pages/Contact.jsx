@@ -13,7 +13,6 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
       setColor("black");
     }, [])
     
-
   return (
   <>
     <div className={styles.container}>

@@ -1,7 +1,6 @@
 .container{
     height: fit-content;
     z-index: 999;
-    border-radius: 10px;
     cursor: pointer;
     position: relative;
     display:flex;
