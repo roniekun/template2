@@ -31,7 +31,6 @@ const Footer = ({ setShowNavbar, isSmallScreen }) => {
         <h5>version</h5>
         <p> &copy; {currentYear}, all rights reserved</p>
         </div>
-
       </div>
     </div>
   );

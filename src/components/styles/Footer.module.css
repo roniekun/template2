@@ -29,6 +29,8 @@
   position: absolute;
   top:5%;
   right: 5%;
+  z-index: 1;
+
 }
 
 .btn{
@@ -85,11 +87,6 @@
     flex-direction: column;
   }
 
-  .btnContainer{
-    align-items:center;
-    flex-direction: column;
-  }
-  
   .body >h2{
     padding: 5%;
     text-align: center;
