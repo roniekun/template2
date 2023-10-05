@@ -148,7 +148,9 @@ const App = () => {
                   setShowNavbar={setShowNavbar}
                   isDesktop={isDesktop} 
                   isMediumScreen={isMediumScreen}
-                  isLoading={isLoading}/>} 
+                  isLoading={isLoading}
+                  setColor={setColor}
+                  color={color}/>} 
                   />
 
                   <Route path='/contact'
@@ -158,7 +160,9 @@ const App = () => {
                    isMediumScreen={isMediumScreen}
                    isSmallScreen={isSmallScreen}  
                    showNavbar={showNavbar}
-                   setShowNavbar={setShowNavbar} />} />
+                   setShowNavbar={setShowNavbar}
+                   setColor={setColor}
+                   color={color} />} />
 
                   <Route path='/pricing' 
                   element={<Pricing 
@@ -167,7 +171,9 @@ const App = () => {
                   isDesktop={isDesktop}
                   showNavbar={showNavbar}
                   isMediumScreen={isMediumScreen}
-                  isLoading={isLoading} />} />
+                  isLoading={isLoading} 
+                  setColor={setColor}
+                  color={color}/>} />
                   {/* </>
                   )}/> */}
                 </Routes>

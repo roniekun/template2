@@ -14,10 +14,18 @@ const Portfolio = ({
   isSmallScreen,
   showNavbar,
   isLoading,
+  setColor
 }) => {
+
+      useEffect(() => {
+      setColor("black");
+    }, [])
+    
   const [activeItem, setActiveItem] = useState(0);
   const [openGallery, setOpenGallery] = useState();
   const imageArray = [];
+
+  
 
   for (let id = 1; id <= 59; id++) {
     imageArray.push({

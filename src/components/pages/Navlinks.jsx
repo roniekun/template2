@@ -54,7 +54,7 @@ const NavbarLinks = ({
       window.scrollTo({ top: 0 });
       setShowNavbar(!showNavbar);
       navigate(linkTo);
-    }, 300);
+    }, 0);
     
   };
   return (

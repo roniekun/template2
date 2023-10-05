@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect} from 'react'
 import styles from './Contact.module.css'
 import ContactForm from '../../assets/contact-form/Contactform'
 import Header from '../Header'
@@ -6,7 +6,14 @@ import Footer from '../Footer'
 import PageWrapper from '../../PageWrapper'
 import Socials from '../../assets/icons/Socials'
 
-const Contact = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNavbar, isLoading}) => {
+const Contact = ({isDesktop, setShowNavbar, isMediumScreen, 
+  isSmallScreen,showNavbar, isLoading, setColor}) => {
+  
+    useEffect(() => {
+      setColor("black");
+    }, [])
+    
+
   return (
   <>
     <div className={styles.container}>
