@@ -60,12 +60,17 @@
   filter: brightness(60%);
 }
 
-.scroll{
-  position: absolute;
-  width: fit-content;
-  padding: 1em;
-  bottom: 0;
+.btn{
+  padding:1em;
+  background-color: transparent;
+  border: 1px whitesmoke solid;
+  color: whitesmoke;
+  cursor: pointer;
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  padding-inline: 2.5em;
 }
+
 
 @media (max-width: 1024px){
   .container{

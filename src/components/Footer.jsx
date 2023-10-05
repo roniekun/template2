@@ -9,7 +9,11 @@ const Footer = ({ setShowNavbar, isSmallScreen }) => {
   return (
     <div className={styles.container}>
       <div className={styles.body}>
-
+        <div className={styles.btnContainer}>
+          <button className={styles.btn} 
+          onClick={()=> window.scrollTo({top:0, behavior: 'smooth'})}>
+             back to top &uarr;</button>
+          </div>
         <div className={styles.socialContainer}>
           <h5>socials</h5>
           <Socials
@@ -25,7 +29,7 @@ const Footer = ({ setShowNavbar, isSmallScreen }) => {
         </div>
         <div className={styles.textContainer}>
         <h5>version</h5>
-        <p> &copy; {currentYear}, all right reserved</p>
+        <p> &copy; {currentYear}, all rights reserved</p>
         </div>
 
       </div>

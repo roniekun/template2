@@ -9,10 +9,10 @@ function Header({showNavbar, setShowNavbar, isSmallScreen, isMediumScreen,
             <div className={styles.logoWrapper}>
               <SiteLogo setShowNavbar={setShowNavbar}
               showNavbar={showNavbar}
-              text={'Your Website'}
+              text={'Your Logo'}
               headerLogo={{fontSize: '20px',
                             fontFamily:'Oswald, sans-serif',
-                            fontWeight: '500',
+                            fontWeight: '500',textTransform:'uppercase',
                             color: color}} />
             </div> 
               {isDesktop &&

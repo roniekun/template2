@@ -25,7 +25,22 @@
   
 }
 
+.btnContainer{
+  position: absolute;
+  top:5%;
+  right: 5%;
+}
 
+.btn{
+  border: none;
+  color: whitesmoke;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 10px;
+}
+.btn:hover{
+  text-decoration: underline;
+}
 .socialContainer{
   display: flex;
   justify-content: flex-start;

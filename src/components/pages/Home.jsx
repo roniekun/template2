@@ -4,7 +4,7 @@ import Header from '../Header'
 import styles from './Home.module.css'
 import Faq from '../../assets/faq/Faq'
 import Cta from '../../assets/call-to-actions/Cta'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
 import { AnimatePresence, motion } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
@@ -58,7 +58,13 @@ useEffect(() => {
   useEffect(() => {
     setColor("white");
   }, [])
-  
+  const toCtaRef = useRef(null);
+
+  const scrollToCta = () => {
+    toCtaRef.current.scrollIntoView({ behavior: 'smooth' });
+    console.log('clicked')
+  };
+
   return (
     <>
     <div 
@@ -73,6 +79,9 @@ useEffect(() => {
           <div className={styles.title}>
           <h1 >Your Name </h1>
           <h1 >Photographer & Filmmaker</h1>
+          <button onClick={scrollToCta}
+                 className={styles.btn}>
+            Start an appointment</button>
           </div>
  
     
@@ -134,7 +143,9 @@ useEffect(() => {
          <h1>Thank you for your support :)</h1>
         </div>
       </div>
+      <div ref={toCtaRef} >
       <Cta isSmallScreen={isSmallScreen}/>
+      </div>
       </PageWrapper>
       <Footer/>
     </div>
