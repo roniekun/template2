@@ -9,7 +9,7 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
   isSmallScreen,showNavbar, isLoading, setColor}) => {
   
     useEffect(() => {
-      setColor("whitesmoke");
+      setColor("black");
     }, [])
     
   return (

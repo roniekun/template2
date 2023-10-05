@@ -8,13 +8,11 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
   isSmallScreen,showNavbar, isLoading, setColor,color}) => {
   
     useEffect(() => {
-      setColor("whitesmoke");
+      setColor("black");
     }, [])
     
-  
   return (
     <>
-
     <div className={styles.container}>
       <PageWrapper>
       <div className={styles.body}>

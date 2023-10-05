@@ -17,7 +17,7 @@ const Portfolio = ({
 }) => {
 
       useEffect(() => {
-      setColor("whitesmoke");
+      setColor("black");
     }, [])
     
   const [activeItem, setActiveItem] = useState(0);

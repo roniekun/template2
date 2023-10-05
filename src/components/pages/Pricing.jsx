@@ -6,7 +6,7 @@ import PageWrapper from '../../PageWrapper'
 const Pricing = ({isDesktop,setShowNavbar,isMediumScreen, 
   isSmallScreen,showNavbar, setColor}) => {
     useEffect(() => {
-      setColor("whitesmoke");
+      setColor("black");
     }, [])
     
   return (

@@ -15,7 +15,7 @@ const Menu = ({ showNavbar, setShowNavbar,color }) => {
         className={styles.container} 
         onClick={handleClick}>
          <span style={{color: color, fontFamily: 'Roboto Mono, monospace',
-            textTransform: 'uppercase', fontSize: '11px', userSelect: 'none',
+            textTransform: 'uppercase', fontSize: '12px', userSelect: 'none',
             letterSpacing: '2px', fontWeight: 'bold'}}>
             Menu</span>
         </div>
