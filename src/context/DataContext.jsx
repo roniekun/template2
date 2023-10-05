@@ -6,7 +6,7 @@ const DataProvider = ({ children }) => {
 
     const [showNavbar, setShowNavbar] = useState(false);
     const [isLoading, setLoading] = useState(true);
-    const [color, setColor] = useState("white");
+    const [color, setColor] = useState("black");
 
     setTimeout(() => {
       setLoading(false);

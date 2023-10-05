@@ -8,9 +8,43 @@ import { NavLink } from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
 import { AnimatePresence, motion } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 
 const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, 
               setColor, showNavbar, isLoading,color}) => {
+
+// animation
+
+const heroImgRef = useRef(null);
+
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  const animation = gsap.to(heroImgRef.current, {
+    y: 100,
+    scrollTrigger: {
+      trigger:heroImgRef.current,
+      start: 'center center',
+      end: 'bottom center', 
+      scrub: true, 
+    },
+  });
+
+  return () => {
+    animation.kill();
+  };
+}, []);
+
+
+
+
+
+
+
+
+
+
 
   const [ref, inView] = useInView({
     threshold: 0.5,
@@ -31,7 +65,7 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
     <div 
     className={styles.container}>
              <div className={styles.imgContainer}>
-        <img className={styles.heroImg} src="images/hero.jpg"  />
+        <img ref={heroImgRef} className={styles.heroImg} src="images/hero.jpg"  />
         </div>
       <PageWrapper>
       <div className={styles.body}>

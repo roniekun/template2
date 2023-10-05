@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Portfolio.module.css';
-import Header from '../Header';
 import Footer from '../Footer';
 import PageWrapper from '../../PageWrapper';
 import { gsap } from 'gsap';
@@ -18,7 +17,7 @@ const Portfolio = ({
 }) => {
 
       useEffect(() => {
-      setColor("black");
+      setColor("whitesmoke");
     }, [])
     
   const [activeItem, setActiveItem] = useState(0);

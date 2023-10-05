@@ -1,13 +1,12 @@
 import {useEffect} from 'react'
 import styles from './Pricing.module.css'
-import Header from '../Header'
 import Footer from '../Footer'
 import PageWrapper from '../../PageWrapper'
 
 const Pricing = ({isDesktop,setShowNavbar,isMediumScreen, 
   isSmallScreen,showNavbar, setColor}) => {
     useEffect(() => {
-      setColor("black");
+      setColor("whitesmoke");
     }, [])
     
   return (

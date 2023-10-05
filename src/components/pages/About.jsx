@@ -1,6 +1,5 @@
 import {useEffect} from 'react'
 import styles from './About.module.css'
-import Header from '../Header'
 import Footer from '../Footer'
 import Cta from '../../assets/call-to-actions/Cta'
 import PageWrapper from '../../PageWrapper'
@@ -9,7 +8,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
   isSmallScreen,showNavbar, isLoading, setColor,color}) => {
   
     useEffect(() => {
-      setColor("black");
+      setColor("whitesmoke");
     }, [])
     
   

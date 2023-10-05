@@ -11,6 +11,7 @@ function Header({showNavbar, setShowNavbar, isSmallScreen, isMediumScreen,
               showNavbar={showNavbar}
               text={'Your Website'}
               headerLogo={{fontSize: '20px',
+                            fontFamily:'Oswald, sans-serif',
                             fontWeight: '500',
                             color: color}} />
             </div> 
