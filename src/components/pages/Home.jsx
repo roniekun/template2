@@ -17,16 +17,16 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
 
 // animation
 
-const heroImgRef = useRef(null);
+const heroImg2Ref = useRef(null);
 
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
-  const animation = gsap.to(heroImgRef.current,{
-    y: 65,
+  const animation = gsap.to(heroImg2Ref.current,{
+    y:75,
     scrollTrigger: {
-      trigger:heroImgRef.current,
-      start: 'center center',
-      end: 'bottom center', 
+      trigger:heroImg2Ref.current,
+      start: 'top center',
+      end: 'bottom top',
       scrub: true, 
     },
   });
@@ -47,7 +47,7 @@ useEffect(() => {
 
   const [ref, inView] = useInView({
     threshold: 0.5,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   const variants = {
@@ -70,7 +70,7 @@ useEffect(() => {
     <div 
     className={styles.container}>
              <div className={styles.imgContainer}>
-        <img ref={heroImgRef} className={styles.heroImg} src="images/hero.jpg"  />
+        <img className={styles.heroImg} src="images/hero.jpg"  />
         </div>
       <PageWrapper>
       <div className={styles.body}>
@@ -83,19 +83,23 @@ useEffect(() => {
                  className={styles.btn}>
             Start an appointment</button>
           </div>
- 
-    
         </div>
 
         <div  className={styles.filler}>
-        <div>
+      
+        <div  className={styles.imgContainerF}>
+          <img  ref={heroImg2Ref} className={styles.heroImgF} src="images/hero2.jpg"/>
+        </div>
+        
+        <div className={styles.fillerContent}>
         <h1 >Transforming your special moments into timeless memories.</h1>
         <p>we craft unique and memorable experience through capturing raw 
           emotions that brings picturisque storytelling.</p>
         </div>
-        <NavLink className={styles.portfolioLink} 
+        <NavLink className={styles.link} 
         onClick={()=> window.scrollTo({top:0})} to='/portfolio'>See Portfolio</NavLink>
         </div>
+   
 
         <div className={styles.sectionTwo}>
 
