@@ -22,7 +22,7 @@ const heroImgRef = useRef(null);
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
   const animation = gsap.to(heroImgRef.current,{
-    y: 70,
+    y: 65,
     scrollTrigger: {
       trigger:heroImgRef.current,
       start: 'center center',
