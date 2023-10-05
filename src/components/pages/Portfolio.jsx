@@ -5,6 +5,7 @@ import Footer from '../Footer';
 import PageWrapper from '../../PageWrapper';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {motion} from 'framer-motion' 
 
 const Portfolio = ({
   isDesktop,
@@ -35,7 +36,7 @@ const Portfolio = ({
         opacity: 1,
         scrollTrigger: {
           trigger: imgRef.current,
-          start: 'top center',
+          start: 'top 80%',
           end: 'center center',
         },
       });
@@ -80,7 +81,11 @@ const Portfolio = ({
     <>
        {openGallery && (
             <div className={styles.imageCarousel}>
-              <img  className={styles.activeImage}src={imageArray[activeItem].src} alt="Selected Image" />
+              <motion.img 
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: .5}}
+              className={styles.activeImage}src={imageArray[activeItem].src} alt="Selected Image" />
               <button className={styles.btnExit} onClick={handleExit}>X</button>
               <div className={styles.btnContainer}>
               <button className={styles.btnPrevious}  onClick={handlePrevious}>Previous</button>
@@ -90,14 +95,6 @@ const Portfolio = ({
           )}
 
       <div className={styles.container}>
-        <Header
-          isDesktop={isDesktop}
-          isMediumScreen={isMediumScreen}
-          isSmallScreen={isSmallScreen}
-          setShowNavbar={setShowNavbar}
-          setColor={'black'}
-          showNavbar={showNavbar}
-        />
         <PageWrapper>
           <div className={styles.body}>
             {imageArray.map((images, index) => (

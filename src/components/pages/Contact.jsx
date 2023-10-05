@@ -10,12 +10,6 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen, isSmallScreen,showNa
   return (
   <>
     <div className={styles.container}>
-         <Header isDesktop={isDesktop}
-              isMediumScreen={isMediumScreen}
-              isSmallScreen={isSmallScreen}
-              setShowNavbar={setShowNavbar}
-              setColor={'black'}
-              showNavbar={showNavbar}/>
    <PageWrapper>
 
     <div className={styles.body}>

@@ -1,15 +1,16 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 import styles from './Home.module.css'
 import Faq from '../../assets/faq/Faq'
 import Cta from '../../assets/call-to-actions/Cta'
+import { NavLink } from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
-import Preloader from '../Preloader'
 import { AnimatePresence, motion } from "framer-motion"
 import { useInView } from 'react-intersection-observer';
 
-const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar, isLoading}) => {
+const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, 
+              setColor, showNavbar, isLoading,color}) => {
 
   const [ref, inView] = useInView({
     threshold: 0.5,
@@ -20,43 +21,48 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, showNavbar
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+
+  useEffect(() => {
+    setColor("white");
+  }, [])
+  
   return (
     <>
     <div 
     className={styles.container}>
-      <Header isDesktop={isDesktop}
-              isMediumScreen={isMediumScreen}
-              isSmallScreen={isSmallScreen}
-              setShowNavbar={setShowNavbar}
-              setColor={'black'}
-              showNavbar={showNavbar}/>
+             <div className={styles.imgContainer}>
+        <img className={styles.heroImg} src="images/hero.jpg"  />
+        </div>
       <PageWrapper>
       <div className={styles.body}>
+
         <div className={styles.sectionOne}>
-        <h1 className={styles.title}>
-        Capturing <strong>MOMENTS </strong> <br />  that last a <br /><span> LIFETIME. </span> 
-        </h1>
-        <p>Transforming your special moments into timeless memories.</p>
-        <p> Your expert event photographer, dedicated to preserving your precious moments.</p>
-        <div className={styles.scroll}><p >Scroll</p></div>
-        <div className={styles.imgContainer}>
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+          <div className={styles.title}>
+          <h1 >Your Name </h1>
+          <h1 >Photographer & Filmmaker</h1>
+          </div>
+ 
+    
         </div>
+
+        <div  className={styles.filler}>
+        <div>
+        <h1 >Transforming your special moments into timeless memories.</h1>
+        <p>we craft unique and memorable experience through capturing raw 
+          emotions that brings picturisque storytelling.</p>
+        </div>
+        <NavLink className={styles.portfolioLink} 
+        onClick={()=> window.scrollTo({top:0})} to='/portfolio'>See Portfolio</NavLink>
         </div>
 
         <div className={styles.sectionTwo}>
-
-        <div><h1>we craft unique and memorable experience through capturing raw 
-          emotions that brings picturisque storytelling.</h1>
-        </div>
 
         <div className={styles.card1}>
         <p>We cover all types of events and different sizes</p>
         </div>
         <div className={styles.card2}>
         <p>Our team consist of dedicated members</p>
+        <p> Your expert event photographer, dedicated to preserving your precious moments.</p>
         </div>
         </div>
 

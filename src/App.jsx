@@ -6,6 +6,7 @@ import Community from './components/pages/Community';
 import Contact from './components/pages/Contact';
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/pages/Home';
+import Header from './components/Header';
 import Menu from './assets/buttons/Menu';
 import Navbar from './components/Navbar';
 import Notfound from './components/Notfound';
@@ -67,22 +68,28 @@ const App = () => {
       <DataProvider>
       <BrowserRouter>
       <DataContext.Consumer>
-        {({showNavbar,setShowNavbar,setLoading,isLoading}) => (
+        {({showNavbar,setShowNavbar,setLoading,isLoading, color, setColor}) => (
               <div className={styles.appContainer}>
                  { isSmallScreen &&
               <div className={styles.menuWrapper}>
               <Menu showNavbar={showNavbar} 
               setShowNavbar={setShowNavbar}
-              displayIcon={true}
-              MenuContainer={{}}/>
+              color={color}
+              />
               </div>}
               { isMediumScreen &&
               <div className={styles.menuWrapper}>
               <Menu showNavbar={showNavbar} 
               setShowNavbar={setShowNavbar}
-              displayIcon={true}
-              MenuContainer={{}}/>
+              color={color}
+              />
+
               </div>}
+
+              <Header showNavbar={showNavbar} setShowNavbar={setShowNavbar}
+              isSmallScreen={isSmallScreen} isMediumScreen={isMediumScreen} isDesktop={isDesktop}
+              color={color} setColor={setColor}/>
+
               {!isDesktop && <PageModal showNavbar={showNavbar}/>}
               {!isDesktop && 
                 <Navbar
@@ -93,7 +100,7 @@ const App = () => {
                   setShowNavbar={setShowNavbar}
                   
                 />}
-            <AnimatePresence ExitBeforeEnter>
+            <AnimatePresence >
                 <Routes>
                   {/* <Route render={()=> (            
                     <> */}
@@ -108,6 +115,8 @@ const App = () => {
                   showNavbar={showNavbar}
                   setShowNavbar={setShowNavbar}
                   isLoading={isLoading}
+                  setColor={setColor}
+                  color={color}
                    />}
                   />
                   
@@ -118,7 +127,9 @@ const App = () => {
                   setShowNavbar={setShowNavbar}
                   isDesktop={isDesktop}
                   isLoading={isLoading}
-                  isMediumScreen={isMediumScreen} />}
+                  isMediumScreen={isMediumScreen}
+                  setColor={setColor}
+                  color={color} />}
                   />
 
                   <Route path='/community' 

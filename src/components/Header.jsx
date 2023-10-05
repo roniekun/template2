@@ -2,25 +2,27 @@ import styles from './styles/Header.module.css';
 import SiteLogo from './SiteLogo';
 import NavbarLinks from './pages/Navlinks';
 
-function Header({showNavbar, setShowNavbar, isSmallScreen, isMediumScreen, isDesktop, setColor}) {
+function Header({showNavbar, setShowNavbar, isSmallScreen, isMediumScreen, 
+                isDesktop, setColor,color}) {
   return (
           <div className={styles.container}>
             <div className={styles.logoWrapper}>
               <SiteLogo setShowNavbar={setShowNavbar}
               showNavbar={showNavbar}
               text={'Your Website'}
-              headerLogo={{fontSize: '24px',
+              headerLogo={{fontSize: '20px',
                             fontWeight: '500',
-                            color: setColor}} />
+                            color: color}} />
             </div> 
               {isDesktop &&
                <div className={styles.navLinksWrapper}>
                <NavbarLinks 
                setShowNavbar={setShowNavbar}
-               headerNavbarWrapper={{ padding: '.3em', 
-                                      borderRadius: '30px'}}
-               headerNavbarLink= {{textTransform: 'uppercase',
-               fontSize: '16px', color: setColor}}/>
+               
+               wrapperProps={{ display: 'flex',justifyContent: 'center', alignItems:'center',
+               shrink: '0', height: '50px', paddingInline:'1em', marginInline: '6px'}}
+               linkProps= {{textTransform: 'uppercase',
+               fontSize: '16px', color: color, fontWeight: '450', fontFamily: 'Oswald,sans-serif'}}/>
              </div>}
           </div>
   );

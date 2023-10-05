@@ -4,8 +4,8 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navlinks.module.css';
 
 const NavbarLinks = ({
-  headerNavbarLink,
-  headerNavbarWrapper,
+  linkProps,
+  wrapperProps,
   showNavbar,
   setShowNavbar,
   footerContainer,
@@ -37,7 +37,7 @@ const NavbarLinks = ({
         gsap.fromTo(
           navbarlinkRef.current, 
           { 
-            opacity: 0
+            opacity: 1
           },
           {
             opacity: 1,
@@ -67,12 +67,12 @@ const NavbarLinks = ({
           ref={containerRef}>
       
           {links.map((link, index) => (
-          <div style={{...NavbarLinksWrapper,...footerNavbarWrapper,...headerNavbarWrapper}} 
+          <div style={{...NavbarLinksWrapper,...footerNavbarWrapper,...wrapperProps}} 
           className={styles.linkWrapper}key={link.to}>
           <NavLink
             style={{...NavbarLinksLink,
                     ...footerNavbarLink,
-                   ...headerNavbarLink}}
+                   ...linkProps}}
             ref={navbarlinkRefs[index]}
             onClick={() => handleLinkClick(link.to)}
             className={`${styles.navbarLink} ${location.pathname === link.to ? styles.activeLink : ''}`}

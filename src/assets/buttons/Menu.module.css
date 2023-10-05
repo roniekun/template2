@@ -1,22 +1,10 @@
 .container{
-    height: 30px;
-    aspect-ratio: 1/1;
+    height: fit-content;
     z-index: 999;
+    border-radius: 10px;
     cursor: pointer;
     position: relative;
     display:flex;
-    flex-direction: column;
-    justify-content: center;
-    gap:8px;
-    align-items: flex-end;
+    
 }
 
-.line{
-    flex: 0 0 1;
-    position: relative;
-    background-color: gray;
-    height: 1px;
-    margin: 0;
-    width: 100%;
-    border-radius: 30px;
-}

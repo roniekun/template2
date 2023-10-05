@@ -3,6 +3,7 @@
     width: 100%;
     flex-direction: column;
     height: auto;
+    padding-top: 120px;
 }
 
 .body{
