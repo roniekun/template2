@@ -3,6 +3,7 @@
     width: 100%;
     flex-direction: column;
     height: auto;
+    min-height: 100vh;
     padding-top: 120px;
 
 }
@@ -129,7 +130,9 @@
 }
 
 @media (max-width: 1024px){
-
+    .body{
+        padding: 0;
+    }
     .sectionOne{
         display: flex;
         flex-direction: column;
