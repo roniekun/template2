@@ -29,33 +29,33 @@ const Preloader = ({custom, isLoading}) => {
       },
     });
 
+
     tl.fromTo(
       logo,
-      { opacity: 0, y:20 },
-      { opacity: 1, y: 0, duration: .3 }
+      { opacity: 0, },
+      { opacity: 1, duration: 1 }
     );
 
-    tl.to(cover,{y:0, delay: isLoading? 1 : .5, ease: 'linear', duration:.5});
 
     tl.to(container, {
-      y: -initialPosition.height*1.5,
-
+      // y: -initialPosition.height*1.5,
+      opacity: 0,
+      delay: 1
     });
-    tl.to(logo, { scale: 1.1 },'-=1');
-    tl.fromTo(filler, {borderBottomLeftRadius: '100%',borderBottomRightRadius: '100%'},
-                {borderBottomLeftRadius: '0%',borderBottomRightRadius: '0%'} );
-
+ 
   }, []);
 
   return (
   <>
-    <div ref={containerRef} className={styles.preloaderContainer}>
+    <div ref={containerRef} 
+    id='container'
+    className={styles.preloaderContainer}>
 
       <div className={styles.logoContainer}>
       <div ref={coverRef} className={styles.cover}></div>
-      <h5 className={styles.preloaderLogo} ref={logoRef}>
-      {isLoading ? 'Welcome!' : `${custom}`}
-      </h5>
+      <h1 className={styles.preloaderLogo} ref={logoRef}>
+       loading website, please wait...
+      </h1>
       </div>
       <div ref={fillerRef} className={styles.fill}></div>
     </div>

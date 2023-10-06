@@ -131,8 +131,8 @@
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  background-color: var(--primary-color);
-  color: whitesmoke;
+  background-color: #F6F4F2;
+  color: #1f1f1f;
   position: relative;
   overflow: hidden;
 

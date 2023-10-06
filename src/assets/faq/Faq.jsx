@@ -12,7 +12,7 @@ const Faq = () => {
     
     answerRefs.forEach(( answerRef, index) => {
       if (expandedIndex===index){
-      gsap.from(answerRef.current, { duration: .5, opacity: 0, y: 10 });}
+      gsap.from(answerRef.current, { duration: .5, opacity: 0, y: 5 });}
     });
   }, [expandedIndex]);
 

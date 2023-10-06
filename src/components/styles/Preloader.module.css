@@ -27,16 +27,13 @@
     opacity: 0;
     color:lightgray;
     align-self: center;
-    font-size: 75px;
-    font-weight: 450;
+    font-size: 18px;
+    font-weight: bold;
     padding: 1em;
     font-family: sans-serif;
-    text-transform: capitalize;
 }
 
-.preloaderLogo span{
-    font-style: italic;
-}
+
 .cover{
     position: absolute;
     width: 100%;
@@ -55,11 +52,4 @@
     background-color: var(--primary-color);
     bottom:0;
     transform: translateY(95%);
-}
-@media (max-width: 600px){
-
-    .preloaderLogo{
-        font-size: 40px;
-        font-weight: 400;
-    }
 }

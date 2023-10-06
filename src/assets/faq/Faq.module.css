@@ -51,12 +51,13 @@
 }
 
 .answer{
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5em;
+    font-weight: 400;
     width: 90%;
 }
 
-@media(max-width: 600px){
+@media(max-width: 1024px){
     .items{
         width: 100% ;
     }

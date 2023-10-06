@@ -11,6 +11,7 @@ import Menu from './assets/buttons/Menu';
 import Navbar from './components/Navbar';
 import Notfound from './components/Notfound';
 import PageModal from './assets/Page-modal';
+import Preloader from './components/Preloader';
 import Pricing from './components/pages/Pricing';
 import { DataProvider, DataContext } from './context/DataContext';
 import Lenis from '@studio-freight/lenis'
@@ -85,7 +86,7 @@ const App = () => {
               />
 
               </div>}
-
+              <Preloader/>
               <Header showNavbar={showNavbar} setShowNavbar={setShowNavbar}
               isSmallScreen={isSmallScreen} isMediumScreen={isMediumScreen} isDesktop={isDesktop}
               color={color} setColor={setColor}/>
