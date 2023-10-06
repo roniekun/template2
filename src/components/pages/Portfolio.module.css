@@ -20,17 +20,22 @@
 }
 
 .imageContainer{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     position: relative;
-    object-fit: contain;
+    object-fit: cover;
+    flex: 0 0 1;
+
 }
 
 .img{
     width: 100%;
     position: relative;
-    aspect-ratio: 16/9;
     opacity: 0;
+    flex-shrink: 0;
+    flex-grow: 0;
     cursor: pointer;
 }  
 

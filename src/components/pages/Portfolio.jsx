@@ -44,6 +44,7 @@ const Portfolio = ({
     imgRefs.forEach((imgRef) => {
       gsap.to(imgRef.current, {
         opacity: 1,
+        duration: .5,
         scrollTrigger: {
           trigger: imgRef.current,
           start: 'top 80%',
@@ -133,7 +134,7 @@ const Portfolio = ({
                 key={index}
                 className={styles.imageContainer}
               >
-                <motion.img
+                <img
                   className={styles.img}
                   onClick={() => handleClick(index)}
                   ref={imgRefs[index]}
