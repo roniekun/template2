@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from 'react'
 import Footer from '../Footer'
 import styles from './Home.module.css'
-import Faq from '../../assets/faq/Faq'
+import FAQ from '../../assets/Frequently-asked-questions/FAQ'
 import Cta from '../../assets/call-to-actions/Cta'
 import { NavLink} from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
@@ -29,7 +29,7 @@ const {scrollYProgress} = useScroll();
   };
 
   useEffect(() => {
-    setColor("#424741");
+    setColor("whitesmoke");
   }, [])
 
   const toCtaRef = useRef(null);
@@ -141,7 +141,7 @@ const {scrollYProgress} = useScroll();
         className={styles.sectionSix}>
           <h1>Frequently Asked Questions: </h1> 
           <p>(This is for Demo purpose only)</p>
-          <Faq />
+          <FAQ />
         </motion.div>
 
         <div className={styles.sectionSeven}>

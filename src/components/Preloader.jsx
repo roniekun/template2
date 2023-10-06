@@ -54,7 +54,7 @@ const Preloader = ({custom, isLoading}) => {
       <div className={styles.logoContainer}>
       <div ref={coverRef} className={styles.cover}></div>
       <h1 className={styles.preloaderLogo} ref={logoRef}>
-       loading website, please wait...
+       Loading website, please wait...
       </h1>
       </div>
       <div ref={fillerRef} className={styles.fill}></div>

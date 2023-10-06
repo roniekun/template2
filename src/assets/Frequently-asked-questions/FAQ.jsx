@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import faqData from './faq-data';
-import styles from './Faq.module.css';
+import faqData from './data';
+import styles from './FAQ.module.css';
 import { gsap } from 'gsap';
 
-const Faq = () => {
+const FAQ = () => {
 
   const [expandedIndex, setExpandedIndex] = useState(null);
   const answerRefs = faqData.map(() => useRef(null));
@@ -54,4 +54,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default FAQ;

@@ -89,9 +89,6 @@ const Portfolio = ({
     }
   }, [])
   
-
-
-
   return (
     <>
        {openGallery && (
@@ -114,12 +111,20 @@ const Portfolio = ({
           ))}
                
               <div className={styles.btnContainer}>
+              <div className={styles.svgContainer}> 
               <Close onClick={handleExit} 
                 className={styles.svg}/>
+              </div>
+              <div className={styles.svgContainer}> 
                 <Prev onClick={handlePrevious}
-                 className={styles.svg}/>
+                 className={styles.svg}/> 
+               </div>
+
+                <div className={styles.svgContainer}> 
                 <Next onClick={handleNext}
-                 className={styles.svg}/>
+                 className={styles.svg}/>              
+              </div>
+
               </div>
             </motion.div>
             </AnimatePresence>

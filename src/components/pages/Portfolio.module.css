@@ -34,13 +34,17 @@
     width: 100%;
     position: relative;
     opacity: 0;
+    transform: scale(1.015);
     flex-shrink: 0;
     flex-grow: 0;
+    transition: all .7s;
     cursor: pointer;
 }  
 
 .img:hover{
     filter: brightness(95%);
+    transform: scale(1);
+    transition: all .7s;
     
 }
 
@@ -80,7 +84,9 @@
 .btnContainer{
     width: 50%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    border-radius: 3px;
+    align-items: center;
     gap: 50px;
     margin: 1em;
     position: absolute;
@@ -88,8 +94,23 @@
     background-color: rgba(241, 240, 240, .1);
     backdrop-filter: blur(10px);
     bottom: 0;
+    padding-inline: 5%;
 }
 
+.svgContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: gray 1px solid;
+    border-radius:  50%;
+    padding: .2em;
+    aspect-ratio: 1/1;
+}
+
+.svgContainer:hover{
+    scale: 1.025;
+    background-color: whitesmoke;
+    }
 .svg{
     fill: #181818;
     cursor: pointer;
