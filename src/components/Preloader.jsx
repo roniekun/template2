@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './styles/Preloader.module.css';
 import { gsap } from 'gsap';
 
@@ -45,6 +45,17 @@ const Preloader = ({custom, isLoading}) => {
  
   }, []);
 
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+ 
+    if (progress < 100) {
+      setTimeout(() => {
+        setProgress(progress+1);
+      }, 10);
+  }
+  }, [progress])
+ 
+
   return (
   <>
     <div ref={containerRef} 
@@ -54,7 +65,8 @@ const Preloader = ({custom, isLoading}) => {
       <div className={styles.logoContainer}>
       <div ref={coverRef} className={styles.cover}></div>
       <h1 className={styles.preloaderLogo} ref={logoRef}>
-       Loading website, please wait...
+       Loading website <br />
+       please wait...{progress}%
       </h1>
       </div>
       <div ref={fillerRef} className={styles.fill}></div>
