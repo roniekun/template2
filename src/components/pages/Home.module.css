@@ -128,7 +128,7 @@
   display: flex;
   min-height: 100vh;
   height: auto;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   background-color: var(--primary-color);
@@ -138,26 +138,23 @@
 
 }
 .fillerContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   position: relative;
   height: 400px;
-  outline: red dashed;
   width: max-content;
 }
+
 .filler h1{
   position: relative;
   font-size: 32px;
-  outline: red dashed;
-
-
 }
 
 .filler p{
   position: relative;
   font-weight: 450;
   font-size: 18px;
-  outline: red dashed;
-
-
 }
 
 .imgContainerF{
