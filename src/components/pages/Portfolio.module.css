@@ -3,7 +3,6 @@
     width: 100%;
     flex-direction: column;
     height: auto;
-    min-height: 100vh;
     padding-top: 120px;
 
 }
@@ -16,6 +15,7 @@
     height: auto;
     flex-direction: column;
     gap: 50px;
+    min-height: 100vh;
 }
 .titleContainer{
     padding: 1em;
