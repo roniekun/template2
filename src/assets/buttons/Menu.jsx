@@ -11,9 +11,10 @@ const Menu = ({ showNavbar, setShowNavbar,color }) => {
 
   return (
         <div 
-        style={{border: showNavbar ? `1px solid ${color}`: 'none', borderRadius:'3px'}}  
+        style={{border: showNavbar ? `1px solid ${color}`: 'none',
+                   borderRadius:'3px', transitionDuration: '.3s'}}  
         className={styles.container} onClick={handleClick}>
-        <Hamburger color={color}/>
+        <Hamburger toggle={!showNavbar} toggled={showNavbar} color={color}/>
         </div>
   );
 };

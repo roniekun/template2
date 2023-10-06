@@ -27,7 +27,7 @@ const {scrollYProgress} = useScroll();
   };
 
   useEffect(() => {
-    setColor("white");
+    setColor("#424741");
   }, [])
 
   const toCtaRef = useRef(null);
