@@ -20,6 +20,7 @@
 .titleContainer{
     padding: 1em;
     }
+
 .sectionOne{
     width: 100%;
     grid-template-columns: 1fr 1fr;
@@ -39,9 +40,13 @@
     position: relative;
     object-fit: cover;
     flex: 0 0 1;
-
 }
 
+.index{
+    top:5px;
+    left: 5px;
+    position: absolute;
+}
 .img{
     width: 100%;
     position: relative;

@@ -102,6 +102,9 @@ const Portfolio = ({
               exit={{opacity: 0}}
               
           className={styles.carouselContainer}>
+          <h5 className={styles.index}>
+          {activeItem+1}/{imageArray.length}
+          </h5>
           {imageArray.map((image, index) => (
             <img
               key={index}
@@ -109,7 +112,6 @@ const Portfolio = ({
               src={image.src}
             />
           ))}
-               
               <div className={styles.btnContainer}>
               <div className={styles.svgContainer}> 
               <Close onClick={handleExit} 
