@@ -56,14 +56,14 @@ const Portfolio = ({
 
   const handleClick = (index) => {
     setActiveItem(index);
-    setOpenGallery(!openGallery);
     document.body.style.overflow = 'hidden';
+    setOpenGallery(!openGallery);
   };
 
   
   const handleExit = () => {
-    setOpenGallery(!openGallery);
     document.body.style.overflow = 'auto';
+    setOpenGallery(!openGallery);
   };
 
   const handleNext = () => {
