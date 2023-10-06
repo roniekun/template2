@@ -7,6 +7,8 @@ import { NavLink} from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
 import { AnimatePresence, motion, useScroll} from "framer-motion"
 import  { ReactComponent as ScrollDown } from '../../../public/svg/arrowdown.svg'
+import  { ReactComponent as SeePortfolio } from '../../../public/svg/arrowinsert.svg'
+
 import { useInView } from 'react-intersection-observer';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -73,7 +75,7 @@ const {scrollYProgress} = useScroll();
         <div className={styles.fillerContent}>
         <div className={styles.fillerContent}>
         <h1 >Transforming your special moments <br /> into timeless memories.</h1>
-        <p>we craft unique and memorable experience through <br /> capturing raw 
+        <p>We craft unique and memorable experience through <br /> capturing raw 
           emotions that brings picturisque storytelling.</p>
         </div>
         </div>
@@ -89,10 +91,13 @@ const {scrollYProgress} = useScroll();
         />
         </div>
         
-   
-
-        <NavLink className={styles.link} 
-        onClick={()=> window.scrollTo({top:0})} to='/portfolio'>See Portfolio</NavLink>
+        <div className={styles.linkContainer}>
+        <NavLink 
+        className={styles.link} 
+        onClick={()=> window.scrollTo({top:0})} to='/portfolio'>See Portfolio
+        </NavLink> 
+        <SeePortfolio className={styles.linkIcon}/>
+        </div>
         </div>
    
 
@@ -123,6 +128,7 @@ const {scrollYProgress} = useScroll();
         </div>
 
         <div className={styles.sectionFive}>
+        <h1>Reviews</h1>
         </div>
   
         <motion.div 
@@ -135,7 +141,6 @@ const {scrollYProgress} = useScroll();
         className={styles.sectionSix}>
           <h1>Frequently Asked Questions: </h1> 
           <p>(This is for Demo purpose only)</p>
-          <br />
           <Faq />
         </motion.div>
 

@@ -16,6 +16,7 @@ const Navbar = ({ showNavbar,
   const logoRef = useRef(null);
   
   useEffect(() => {
+
     const itemAnim = {
       x: showNavbar ? "0%" : "-160%",
       duration: .5,
@@ -29,6 +30,8 @@ const Navbar = ({ showNavbar,
     gsap.to(navItemsRef.current,itemAnim);
     gsap.to(footerRef.current, itemAnim);
     gsap.to(logoRef.current, itemAnim);
+
+    
   }, [showNavbar,  isSmallScreen]);
 
   return (

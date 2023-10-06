@@ -68,7 +68,9 @@
     }
     .submit{
         padding: 2em;
-        align-self: flex-end;
+        align-self: center;
+        width: 80%;
+        margin-top: 20px;
     }
     .textInput, .emailInput, .textArea{
         width: 100%;
