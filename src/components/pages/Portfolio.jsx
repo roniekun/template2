@@ -57,11 +57,13 @@ const Portfolio = ({
   const handleClick = (index) => {
     setActiveItem(index);
     setOpenGallery(!openGallery);
+    document.body.style.overflow = 'hidden';
   };
 
   
   const handleExit = () => {
     setOpenGallery(!openGallery);
+    document.body.style.overflow = 'auto';
   };
 
   const handleNext = () => {
@@ -133,6 +135,11 @@ const Portfolio = ({
       <div className={styles.container}>
         <PageWrapper>
           <div className={styles.body}>
+          <div className={styles.titleContainer}>
+            <h1 className={styles.title}>Portfolio</h1>
+            </div>
+          <div className={styles.sectionOne}>
+  
             {imageArray.map((images, index) => (
               <div
                 ref={imgContainerRefs[index]}
@@ -148,6 +155,7 @@ const Portfolio = ({
                 />
               </div>
             ))}
+            </div>
           </div>
         </PageWrapper>
         <Footer />

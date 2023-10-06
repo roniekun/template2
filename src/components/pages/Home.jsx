@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from 'react'
+import Card from '../../assets/card-slider/Card'
 import Footer from '../Footer'
 import styles from './Home.module.css'
 import FAQ from '../../assets/Frequently-asked-questions/FAQ'
@@ -125,6 +126,7 @@ const {scrollYProgress} = useScroll();
 
         <div className={styles.sectionFour}>
           <h1>Featured Events</h1>
+          <Card/>
         </div>
 
         <div className={styles.sectionFive}>

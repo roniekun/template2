@@ -1,0 +1,28 @@
+.slider{
+    height: 600px;
+    aspect-ratio: 2/3;
+    scroll-snap-type:  x mandatory;
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 3px;
+    overflow-x:scroll;
+}
+
+.slider::-webkit-scrollbar{
+    display: none;
+    }
+
+
+.slides{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    flex-shrink: 0;
+    width: 500px;
+    background-color: gray;
+    scroll-snap-align: center;
+}
