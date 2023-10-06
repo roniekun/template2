@@ -27,16 +27,20 @@
     object-fit: contain;
 }
 
-.imageContainer > img{
-    
+.img{
     width: 100%;
     position: relative;
     aspect-ratio: 16/9;
     opacity: 0;
     cursor: pointer;
+}  
+
+.img:hover{
+    filter: brightness(95%);
+    
 }
 
-.imageCarousel{
+.carouselContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,54 +56,46 @@
 }
 
 .activeImage{
+    position: absolute;
     width: 90%;
+    z-index: -1;
     aspect-ratio: 2/1;
     object-fit: contain;
     opacity: 0;
+    transition: opacity .3s ease-in;
+    display: block;
+    z-index: -1;
+    user-select: none;
 }
-
-.btnExit{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    color: gray;
-    right: 0;
-    height: 50px;
-    aspect-ratio: 1/1;
-    margin: 5%;
-    border-radius: 50%;
-    border: 1px solid gray;
-    background-color: transparent;
-    mix-blend-mode: difference;
-
-}
+  
+ .active {
+    opacity: 1;
+    z-index: 1;
+  }
 
 .btnContainer{
-    mix-blend-mode: difference;
-    width: 100%;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 50px;
     margin: 1em;
-    position: relative;
+    position: absolute;
+    color: black;
+    z-index: 999999;
+    bottom: 0;
 }
-.btnNext{
-    cursor: pointer;
-    background-color:  transparent;
-    color: gray;
-    padding: 1em;
-    border: none;    
-    border: 1px solid gray;
-    border-radius:30px;
 
+.svg{
+    fill: black;
+    cursor: pointer;
 }
-.btnPrevious{
-    cursor: pointer;
-    background-color:  transparent;
-    color: gray;
-    padding: 1em;
-    border: none;
-    border: 1px solid gray;
-    border-radius:30px;
 
+@media (max-width: 1024px){
+    .carouselContainer{
+        padding: 0;
+        object-fit: cover;
+    }
+    .activeImage{
+        width: 100%;
+    }
 }

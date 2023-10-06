@@ -4,7 +4,10 @@ import Footer from '../Footer';
 import PageWrapper from '../../PageWrapper';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {motion} from 'framer-motion' 
+import  { ReactComponent as Next } from '../../../public/svg/next.svg';
+import  { ReactComponent as Prev } from '../../../public/svg/prev.svg';
+import  { ReactComponent as Close } from '../../../public/svg/close.svg';
+import {AnimatePresence, motion} from 'framer-motion' 
 
 const Portfolio = ({
   isDesktop,
@@ -61,44 +64,64 @@ const Portfolio = ({
   };
 
   const handleNext = () => {
-  
-    if (activeItem === imageArray.length - 1) {
-      // If activeItem is at the last index, loop back to the first index (0).
-      setActiveItem(0);
-    } else {
-      setActiveItem((prev) => prev + 1);
-    }
-    console.log(activeItem);
-
+    setActiveItem((prev) => (prev === imageArray.length - 1 ? 0 : prev + 1));
   };
   
   const handlePrevious = () => {
-    if (activeItem === 0) {
-      // If activeItem is at the first index, loop to the last index.
-      setActiveItem(imageArray.length - 1);
-    } else {
-      setActiveItem((prev) => prev - 1);
-    }
-    console.log(activeItem);
-
+    setActiveItem((prev) => (prev === 0 ? imageArray.length - 1 : prev - 1));
   };
+
+  useEffect(() => {
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowRight') {
+        setActiveItem((prev) => (prev === imageArray.length - 1 ? 0 : prev + 1));
+      } else if (event.key === 'ArrowLeft') {
+        setActiveItem((prev) => (prev === 0 ? imageArray.length - 1 : prev - 1));
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [])
   
+
+
 
   return (
     <>
        {openGallery && (
-            <div className={styles.imageCarousel}>
-              <motion.img 
+        <AnimatePresence mode='wait'>
+              <motion.div 
               initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              transition={{duration: .5}}
-              className={styles.activeImage}src={imageArray[activeItem].src} alt="Selected Image" />
-              <button className={styles.btnExit} onClick={handleExit}>X</button>
+              animate={{opacity:1}}
+              transition={{
+                duration: .3
+              }}
+              exit={{opacity: 0}}
+              
+          className={styles.carouselContainer}>
+          {imageArray.map((image, index) => (
+            <img
+              key={index}
+              className={`${styles.activeImage} ${index === activeItem ? styles.active : ''}`}
+              src={image.src}
+            />
+          ))}
+               
               <div className={styles.btnContainer}>
-              <button className={styles.btnPrevious}  onClick={handlePrevious}>Previous</button>
-              <button className={styles.btnNext}onClick={handleNext}>Next</button>
+              <Close onClick={handleExit} 
+                className={styles.svg}/>
+                <Prev onClick={handlePrevious}
+                 className={styles.svg}/>
+                <Next onClick={handleNext}
+                 className={styles.svg}/>
               </div>
-            </div>
+            </motion.div>
+            </AnimatePresence>
           )}
 
       <div className={styles.container}>
@@ -110,7 +133,8 @@ const Portfolio = ({
                 key={index}
                 className={styles.imageContainer}
               >
-                <img
+                <motion.img
+                  className={styles.img}
                   onClick={() => handleClick(index)}
                   ref={imgRefs[index]}
                   src={images.src}
