@@ -82,6 +82,29 @@
   margin: 1em;
 }
 
+.arrowdownContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  color: whitesmoke;
+  gap: 10px;
+}
+.arrowdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: whitesmoke 1px solid;
+  width: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  fill: whitesmoke;
+}
+
+
 
 @media (max-width: 1024px){
   .container{
@@ -116,20 +139,24 @@
 }
 .fillerContent{
   position: relative;
-  width: 80%;
+  height: 400px;
+  outline: red dashed;
+  width: max-content;
 }
 .filler h1{
   position: relative;
-  width: 50%;
   font-size: 32px;
+  outline: red dashed;
+
 
 }
 
 .filler p{
   position: relative;
-  width: 40%;
   font-weight: 450;
   font-size: 18px;
+  outline: red dashed;
+
 
 }
 
@@ -137,14 +164,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80%;
-  position: absolute;
+  height: 400px;
+  position: relative;
   object-fit: cover;
-  right:15%;
-  top: 5%;
+
   overflow: hidden;
   filter: brightness(70%);
-  aspect-ratio: 5/7;
 }
 
 .heroImgF{
@@ -249,6 +274,7 @@
 }
 
 .sectionSix{
+  display: flex;
   width:100%;
   height: auto;
   min-height: 800px;

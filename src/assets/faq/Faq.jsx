@@ -35,11 +35,16 @@ const Faq = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div className={styles.questionContainer}>
-              <p className={styles.question}>Q: {faqItem.question}</p>
+    
+            <p key={index} className={styles.question}> 
+              <span>
+                {index+1}.</span>  {faqItem.question}</p>
             </div>
             {expandedIndex === index && (
               <div className={styles.answerContainer}>
-                <p ref={answerRefs[index]} className={styles.answer}> {faqItem.answer}</p>
+                <p ref={answerRefs[index]} className={styles.answer}> 
+                {faqItem.answer}
+                </p>
               </div>
             )}
           </div>

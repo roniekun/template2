@@ -1,49 +1,20 @@
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Footer from '../Footer'
-import Header from '../Header'
 import styles from './Home.module.css'
 import Faq from '../../assets/faq/Faq'
 import Cta from '../../assets/call-to-actions/Cta'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import PageWrapper from '../../PageWrapper'
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, useScroll} from "framer-motion"
+import  { ReactComponent as ScrollDown } from '../../../public/svg/arrowdown.svg'
 import { useInView } from 'react-intersection-observer';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-
 const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, 
               setColor, showNavbar, isLoading,color}) => {
 
-// animation
-
-const heroImg2Ref = useRef(null);
-
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  const animation = gsap.to(heroImg2Ref.current,{
-    y:75,
-    scrollTrigger: {
-      trigger:heroImg2Ref.current,
-      start: 'top center',
-      end: 'bottom top',
-      scrub: true, 
-    },
-  });
-  return () => {
-    animation.kill();
-  };
-}, []);
-
-
-
-
-
-
-
-
-
-
+const {scrollYProgress} = useScroll();
 
   const [ref, inView] = useInView({
     threshold: 0.5,
@@ -58,11 +29,15 @@ useEffect(() => {
   useEffect(() => {
     setColor("white");
   }, [])
-  const toCtaRef = useRef(null);
 
+  const toCtaRef = useRef(null);
   const scrollToCta = () => {
     toCtaRef.current.scrollIntoView({ behavior: 'smooth' });
-    console.log('clicked')
+  };
+
+   const toScrollRef = useRef(null);
+  const scroll = () => {
+    toScrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -78,24 +53,44 @@ useEffect(() => {
         <div className={styles.sectionOne}>
           <div className={styles.title}>
           <h1 >Your Name </h1>
-          <h1 >Photographer & Filmmaker</h1>
+          <motion.h1 >Photographer & Filmmaker</motion.h1>
           <button onClick={scrollToCta}
                  className={styles.btn}>
             Start an appointment</button>
+          
           </div>
+          
+        <div className={styles.arrowdownContainer}>
+           <h5>Scroll</h5>
+            <div onClick={scroll} className={styles.arrowdown}>
+            <ScrollDown/>
+            </div>
+        </div>
         </div>
 
-        <div  className={styles.filler}>
-      
-        <div  className={styles.imgContainerF}>
-          <img  ref={heroImg2Ref} className={styles.heroImgF} src="images/hero2.jpg"/>
-        </div>
-        
+        <div ref={toScrollRef} 
+             className={styles.filler}>
         <div className={styles.fillerContent}>
-        <h1 >Transforming your special moments into timeless memories.</h1>
-        <p>we craft unique and memorable experience through capturing raw 
+        <div className={styles.fillerContent}>
+        <h1 >Transforming your special moments <br /> into timeless memories.</h1>
+        <p>we craft unique and memorable experience through <br /> capturing raw 
           emotions that brings picturisque storytelling.</p>
         </div>
+        </div>
+      
+        <div  className={styles.imgContainerF}>
+        <motion.img
+          whileInView={{
+            y:scrollYProgress,
+          }}
+          transition={{ duration: 0.3 }}
+          className={styles.heroImgF}
+          src="images/hero2.jpg"
+        />
+        </div>
+        
+   
+
         <NavLink className={styles.link} 
         onClick={()=> window.scrollTo({top:0})} to='/portfolio'>See Portfolio</NavLink>
         </div>
@@ -138,7 +133,8 @@ useEffect(() => {
         transition={{ duration: 0.3 }}
         exit={{y: -20}}
         className={styles.sectionSix}>
-          <h1>Frequently Asked Questions: </h1> <p>(This is for Demo purpose only)</p>
+          <h1>Frequently Asked Questions: </h1> 
+          <p>(This is for Demo purpose only)</p>
           <br />
           <Faq />
         </motion.div>
