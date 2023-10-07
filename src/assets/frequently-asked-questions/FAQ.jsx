@@ -34,9 +34,8 @@ const FAQ = () => {
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
-            <div className={styles.questionContainer}>
-    
-            <p key={index} className={styles.question}> 
+            <div key={index} className={styles.questionContainer}>
+            <p className={styles.question}> 
               <span>
                 {index+1}.</span>  {faqItem.question}</p>
             </div>

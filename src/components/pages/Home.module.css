@@ -198,7 +198,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 200vh;
+  min-height: 100vh;
   height: auto;
 }
 
@@ -302,12 +302,14 @@
 
 .sectionSix{
   display: flex;
-  width:100%;
+  width:100vw;
+  gap: 50px;
   height: auto;
   min-height: 800px;
+  padding: 5%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   opacity: 0;
 }
