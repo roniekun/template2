@@ -264,10 +264,29 @@
   min-height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding: 5%;
   background-color: var(--primary-color);
   color: whitesmoke;
+}
+.s4title{
+  padding: 1em;
+}
+.cardSlider{
+  width: 100%;
+  display: flex;
+  flex-basis: content;
+  align-self: flex-end;
+}
+
+@media (max-width: 1024px){
+  .sectionFour{
+    padding:0;
+  }
+  .cardSlider{
+    align-self: center;
+  }
 }
 
 

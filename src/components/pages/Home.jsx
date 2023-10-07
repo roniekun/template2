@@ -19,7 +19,7 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
 
 const {scrollYProgress} = useScroll();
 
-  const [ref, inView] = useInView({
+  const [s6Ref, inView] = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
@@ -119,14 +119,20 @@ const {scrollYProgress} = useScroll();
           <h2> 10 years of experience</h2>
         </div>
 
-        <div className={styles.circle} id={styles.circle3}>
-        <h2> More than 100+ satisfied clients</h2>
+        <div 
+        className={styles.circle} id={styles.circle3}>
+        <h2> <span>100+</span> <br />
+         Satisfied clients</h2>
         </div>
         </div>
 
         <div className={styles.sectionFour}>
-          <h1>Featured Events</h1>
+          <h1 className={styles.s4title}>
+            Featured Events
+          </h1>
+          <div className={styles.cardSlider}>
           <Card/>
+          </div>
         </div>
 
         <div className={styles.sectionFive}>
@@ -134,7 +140,7 @@ const {scrollYProgress} = useScroll();
         </div>
   
         <motion.div 
-        ref={ref}
+        ref={s6Ref}
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         variants={variants}

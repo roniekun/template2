@@ -35,3 +35,15 @@ font-family: 'Work Sans', sans-serif;
 
 
 
+/* selecting items and mapping them in an array  */
+
+const slideElements = document.querySelectorAll(`.${styles.slides}`);
+// Convert NodeList to an array (optional)
+const slideArray = Array.from(slideElements);
+
+// Now you can work with slideElements or slideArray
+slideArray.forEach((slide, index) => {
+  // Manipulate or access each slide element here
+  // slide.style.transform = `translateX(${window.innerWidth * index}%)`;
+  slide.style.color = 'red';
+});
