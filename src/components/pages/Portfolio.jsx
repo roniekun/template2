@@ -43,15 +43,14 @@ const Portfolio = ({
 
     imgRefs.forEach((imgRef) => {
       gsap.fromTo(imgRef.current, {
-        scale: 1,
-        duration: .3,
+        scale: 1.2,
         scrollTrigger: {
           trigger: imgRef.current,
           start: 'top 80%',
           end: 'center center',
           scrub: true,
         },
-      }, { scale: 2, }
+      }, { scale: 1, }
       );
     });
 
