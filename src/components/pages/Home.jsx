@@ -27,7 +27,6 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
                           scrub: true,
                           start: "top",
                           end: "+=500px",
-                          markers: true,
                       },
                   })
           
