@@ -41,7 +41,7 @@ const Portfolio = ({
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    imgRefs.forEach((imgRef) => {
+    imgRefs.forEach((imgRef,index) => {
       gsap.to(imgRef.current, {
         opacity: 1, duration: .3, scale: 1,
         delay: index * .3,
