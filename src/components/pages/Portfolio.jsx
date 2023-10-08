@@ -39,11 +39,11 @@ const Portfolio = ({
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const tl= gsap.timeline();
+
     loaders.forEach((loader, index) => {
-      tl.to(loader.current, {
+      gsap.to(loader.current, {
         y: '-100%',
-        duration: 1,
+        duration: .5,
         delay: index * .1,
         scrollTrigger: {
           trigger: loader.current,
@@ -54,7 +54,7 @@ const Portfolio = ({
     });
 
     imgRefs.forEach((imgRef,index) => {
-      tl.to(imgRef.current, {
+      gsap.to(imgRef.current, {
         opacity: 1, duration: .3, scale: 1,
         delay: index * .1,
         scrollTrigger: {
