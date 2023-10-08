@@ -26,13 +26,14 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
                           trigger: document.documentElement,
                           scrub: true,
                           start: "top",
-                          end: "+=800px",
+                          end: "+=500px",
+                          markers: true,
                       },
                   })
           
                   timeline
                       .to(heroImg.current, {scale: 1})
-                      .to(heroImg.current, {clipPath: !isSmallScreen ? `inset(5%)` : ''}, "-=.3")
+                      .to(heroImg.current, {clipPath: isDesktop ? `inset(5%)` : ''}, "-=.3")
                       .to(title.current, {scale: 1.025}, "-=.5")
               }, [])
 
