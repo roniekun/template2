@@ -2,8 +2,8 @@ import {useEffect} from 'react'
 import styles from './Contact.module.css'
 import ContactForm from '../../assets/contact-form/Contactform'
 import Footer from '../Footer'
-import PageWrapper from '../../PageWrapper'
 import Socials from '../../assets/icons/Socials'
+import {motion} from 'framer-motion'
 
 const Contact = ({isDesktop, setShowNavbar, isMediumScreen, 
   isSmallScreen,showNavbar, isLoading, setColor}) => {
@@ -14,8 +14,15 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
     
   return (
   <>
-    <div className={styles.container}>
-   <PageWrapper>
+    <motion.div 
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    transition={{
+      duration: .3,
+    }}
+    exit={{opacity: 0}}
+    
+    className={styles.container}>
 
     <div className={styles.body}>
      <h2 className={styles.heading}>Let me know about the project <br /> you are working with.</h2>
@@ -51,9 +58,8 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
    
        </div>
     </div>
-    </PageWrapper>
     <Footer/>
-    </div>
+    </motion.div>
     </>
   )
 }

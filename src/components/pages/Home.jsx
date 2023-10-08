@@ -5,11 +5,9 @@ import styles from './Home.module.css'
 import FAQ from '../../assets/frequently-asked-questions/FAQ'
 import Cta from '../../assets/call-to-actions/Cta'
 import { NavLink} from 'react-router-dom'
-import PageWrapper from '../../PageWrapper'
 import { AnimatePresence, motion, useScroll} from "framer-motion"
 import  { ReactComponent as ScrollDown } from '../../../public/svg/arrowdown.svg'
 import  { ReactComponent as SeePortfolio } from '../../../public/svg/arrowinsert.svg'
-
 import { useInView } from 'react-intersection-observer';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -46,13 +44,18 @@ const {scrollYProgress} = useScroll();
 
   return (
     <>
-    <div 
+    <motion.div 
+     initial={{opacity: 0}}
+     animate={{opacity: 1}}
+     transition={{
+       duration: .3,
+     }}
+     exit={{opacity: 0}}
     className={styles.container}>
      <div  data-scroll data-scroll-speed="0.3" 
       className={styles.imgContainer}>
         <img className={styles.heroImg} src="images/hero.jpg"  />
         </div>
-      <PageWrapper>
       <div className={styles.body}>
 
         <div className={styles.sectionOne}>
@@ -161,9 +164,8 @@ const {scrollYProgress} = useScroll();
       <div ref={toCtaRef} >
       <Cta isSmallScreen={isSmallScreen}/>
       </div>
-      </PageWrapper>
       <Footer/>
-    </div>
+    </motion.div>
    
     </>
   )

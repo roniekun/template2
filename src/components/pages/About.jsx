@@ -1,8 +1,8 @@
 import {useEffect} from 'react'
 import styles from './About.module.css'
 import Footer from '../Footer'
+import { motion } from 'framer-motion'
 import Cta from '../../assets/call-to-actions/Cta'
-import PageWrapper from '../../PageWrapper'
 
 const About = ({isDesktop, setShowNavbar, isMediumScreen, 
   isSmallScreen,showNavbar, isLoading, setColor,color}) => {
@@ -13,8 +13,15 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
     
   return (
     <>
-    <div className={styles.container}>
-      <PageWrapper>
+    <motion.div 
+     initial={{opacity: 0}}
+     animate={{opacity: 1}}
+     transition={{
+       duration: .3,
+     }}
+     exit={{opacity: 0}}
+
+    className={styles.container}>
       <div className={styles.body}>
         <div className={styles.sectionOne}>
 
@@ -48,9 +55,8 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
         ><h1>Awards</h1></div>
       </div>
         <Cta/>
-      </PageWrapper>
       <Footer/>
-    </div>
+    </motion.div>
     </>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Portfolio.module.css';
 import Footer from '../Footer';
-import PageWrapper from '../../PageWrapper';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import  { ReactComponent as Next } from '../../../public/svg/next.svg';
@@ -40,31 +39,12 @@ const Portfolio = ({
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
-    imgRefs.forEach((imgRef,index) => {
-      gsap.to(imgRef.current, {
-        opacity: 1, duration: .3, scale: 1,
-        delay: index * .3,
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: 'top 80%',
-          end: 'center center',
-        },
-      }
-      );
-    });
-
-
-  }, []);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
+    const tl= gsap.timeline();
     loaders.forEach((loader, index) => {
-      gsap.to(loader.current, {
-        y: '100%',
+      tl.to(loader.current, {
+        y: '-100%',
         duration: 1,
-        delay: index * .3,
+        delay: index * .1,
         scrollTrigger: {
           trigger: loader.current,
           start: 'top 80%',
@@ -73,8 +53,23 @@ const Portfolio = ({
       });
     });
 
-  }, [])
-  
+    imgRefs.forEach((imgRef,index) => {
+      tl.to(imgRef.current, {
+        opacity: 1, duration: .3, scale: 1,
+        delay: index * .1,
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: 'top 80%',
+          end: 'center center',
+        },
+      }, '-=1'
+      );
+    });  
+
+
+  }, []);
+
+
 
   const handleClick = (index) => {
     setActiveItem(index);
@@ -114,7 +109,6 @@ const Portfolio = ({
   return (
     <>
        {openGallery && (
-        <AnimatePresence mode='wait'>
               <motion.div 
               initial={{opacity: 0}}
               animate={{opacity:1}}
@@ -151,11 +145,17 @@ const Portfolio = ({
 
               </div>
             </motion.div>
-            </AnimatePresence>
           )}
 
-      <div className={styles.container}>
-        <PageWrapper>
+      <motion.div 
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      transition={{
+        duration: .3,
+      }}
+      exit={{opacity: 0}}
+
+      className={styles.container}>
           <div className={styles.body}>
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>Portfolio</h1>
@@ -184,9 +184,8 @@ const Portfolio = ({
             ))}
             </div>
           </div>
-        </PageWrapper>
         <Footer />
-      </div>
+      </motion.div>
     </>
   );
 };

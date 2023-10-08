@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import { Routes,Route, useLocation } from 'react-router-dom';
 import styles from './App.module.css';
 import About from './components/pages/About';
 import Community from './components/pages/Community';
@@ -22,7 +22,7 @@ const App = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
   const [isMediumScreen, setIsMediumScreen] = useState (window.innerWidth <= 1024 && window.innerWidth > 600)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
-
+  const location = useLocation();
 
 const lenis = new Lenis()
 
@@ -67,7 +67,6 @@ requestAnimationFrame(raf)
 
   return (
       <DataProvider>
-      <BrowserRouter>
       <DataContext.Consumer>
         {({showNavbar,setShowNavbar,setLoading,isLoading, color, setColor}) => (
               <div className={styles.appContainer}>
@@ -102,7 +101,8 @@ requestAnimationFrame(raf)
                   
                 />}
             <AnimatePresence >
-                <Routes>
+                <Routes key={location.key} 
+                 location={location} >
                   {/* <Route render={()=> (            
                     <> */}
                   <Route path='*' 
@@ -182,7 +182,6 @@ requestAnimationFrame(raf)
               </div>
                 )}
                 </DataContext.Consumer>
-        </BrowserRouter>
         </DataProvider>
   );
 };
