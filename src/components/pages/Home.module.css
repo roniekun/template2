@@ -33,10 +33,11 @@
 
 .title{
   position: absolute;
-  font-size: 32px;
+  font-size: 2vw;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
   font-weight: 400px;
+  padding: 5%;
   text-align: center;
   color: whitesmoke;
   filter: brightness(90%);
@@ -53,6 +54,7 @@
   position: absolute;
   object-fit: cover;
   overflow: hidden;
+  object-position: top;
 }
 
 /* .imgContainer::after{
@@ -67,6 +69,8 @@
 .heroImg{
   position: relative;
   width: 100%;
+  object-fit: cover;
+  scale: 1.1;
 }
 
 .btn{
@@ -106,6 +110,7 @@
 
 
 
+
 @media (max-width: 1024px){
   .container{
     display: flex;
@@ -118,11 +123,13 @@
   width: auto;
   height: 100%;
 }
-  .title{
-    font-size: 18px;
+.title{
+  font-size: 3vw;;
 }
 
 }
+/*  */
+
 
 .filler{
   display: flex;
@@ -148,7 +155,7 @@
 }
 
 .fillerTitle{
-  font-size: 100px;
+  font-size: 3vw;
   position: absolute;
   top: 20%;
   color: black;
@@ -158,13 +165,13 @@
 
 .filler h1{
   position: relative;
-  font-size: 48px;
+  font-size: 2vw;
 }
 
 .filler p{
   position: relative;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1vw;
 }
 
 .imgContainerF{
@@ -338,4 +345,8 @@
 .sectionSeven > h1{
   text-align: center;
   width: 90%;
+}
+
+.ctaContainer{
+  width: 100%;
 }

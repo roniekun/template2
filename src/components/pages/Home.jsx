@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState, useLayoutEffect} from 'react'
 import Card from '../../assets/card-slider/Card'
 import Footer from '../Footer'
 import styles from './Home.module.css'
@@ -14,6 +14,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, 
               setColor, showNavbar, isLoading,color}) => {
+
+              const heroImg = useRef(null);
+              const title = useRef(null);
+
+                useLayoutEffect( () => {
+                  gsap.registerPlugin(ScrollTrigger);
+          
+                  const timeline = gsap.timeline({
+                      scrollTrigger: {
+                          trigger: document.documentElement,
+                          scrub: true,
+                          start: "top",
+                          end: "+=800px",
+                      },
+                  })
+          
+                  timeline
+                      .to(heroImg.current, {scale: 1})
+                      .to(heroImg.current, {clipPath: !isSmallScreen ? `inset(5%)` : ''}, "-=.3")
+                      .to(title.current, {scale: 1.025}, "-=.5")
+              }, [])
 
 
 const {scrollYProgress} = useScroll();
@@ -52,17 +73,21 @@ const {scrollYProgress} = useScroll();
      }}
      exit={{opacity: 0}}
     className={styles.container}>
-     <div  data-scroll data-scroll-speed="0.3" 
-      className={styles.imgContainer}>
-        <img className={styles.heroImg} src="images/hero.jpg"  />
+
+     <div className={styles.imgContainer}>
+        <img ref={heroImg} 
+        className={styles.heroImg} 
+        src="images/hero.jpg"  />
         </div>
       <div className={styles.body}>
 
         <div className={styles.sectionOne}>
-          <div className={styles.title}>
-          <h1 data-scroll data-scroll-speed="0.5">
+         
+          <div ref={title} className={styles.title}>
+          <h1>
             Your Name </h1>
           <h1 >Photographer & Filmmaker</h1>
+
           <button onClick={scrollToCta}
                  className={styles.btn}>
             Start an appointment</button>
@@ -161,7 +186,7 @@ const {scrollYProgress} = useScroll();
          <h1>Thank you for your support :)</h1>
         </div>
       </div>
-      <div ref={toCtaRef} >
+      <div className={styles.ctaContainer} ref={toCtaRef} >
       <Cta isSmallScreen={isSmallScreen}/>
       </div>
       <Footer/>

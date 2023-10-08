@@ -27,10 +27,11 @@
     opacity: 0;
     color:lightgray;
     align-self: center;
-    font-size: 18px;
+    font-size: 3vh;
     font-weight: bold;
     padding: 1em;
     font-family: sans-serif;
+    text-align: center;
 }
 
 
