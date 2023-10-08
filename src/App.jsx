@@ -8,13 +8,14 @@ import { AnimatePresence } from 'framer-motion';
 import Home from './components/pages/Home';
 import Header from './components/Header';
 import Menu from './assets/buttons/Menu';
+import Lenis from '@studio-freight/lenis'
 import Navbar from './components/Navbar';
 import Notfound from './components/Notfound';
 import PageModal from './assets/Page-modal';
 import Preloader from './components/Preloader';
 import Pricing from './components/pages/Pricing';
 import { DataProvider, DataContext } from './context/DataContext';
-import Lenis from '@studio-freight/lenis'
+
 import Portfolio from './components/pages/Portfolio';
 
 const App = () => {
@@ -22,17 +23,16 @@ const App = () => {
   const [isMediumScreen, setIsMediumScreen] = useState (window.innerWidth <= 1024 && window.innerWidth > 600)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
 
-  const lenis = new Lenis()
-  lenis.on('scroll', () => {
-    console.log('ls')
-  })
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-  requestAnimationFrame(raf)
 
-  
+const lenis = new Lenis()
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+requestAnimationFrame(raf)
+//lenis-scroll
+
   const handleResize = useCallback(() => {
 
     const screenWidth = window.innerWidth;

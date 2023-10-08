@@ -27,7 +27,6 @@ const Portfolio = ({
   const [openGallery, setOpenGallery] = useState();
   const imageArray = [];
 
-  
 
   for (let id = 1; id <= 59; id++) {
     imageArray.push({
@@ -37,16 +36,31 @@ const Portfolio = ({
 
   const imgRefs = imageArray.map(() => useRef(null));
   const imgContainerRefs = imageArray.map(() => useRef(null));
+  const loaders = imageArray.map(() => useRef(null));
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     imgRefs.forEach((imgRef) => {
-      gsap.to(imgRef.current, {
-        opacity: 1,
-        duration: .5,
+      gsap.fromTo(imgRef.current, {
+        scale: 1,
+        duration: .3,
         scrollTrigger: {
           trigger: imgRef.current,
+          start: 'top 80%',
+          end: 'center center',
+          scrub: true,
+        },
+      }, { scale: 2, }
+      );
+    });
+
+    loaders.forEach((loader) => {
+      gsap.to(loader.current, {
+        y: '-100%',
+        duration: 1,
+        scrollTrigger: {
+          trigger: loader.current,
           start: 'top 80%',
           end: 'center center',
         },
@@ -146,6 +160,11 @@ const Portfolio = ({
                 key={index}
                 className={styles.imageContainer}
               >
+              <div 
+              ref={loaders[index]} 
+              className={styles.loader}>
+              </div>
+
                 <img
                   className={styles.img}
                   onClick={() => handleClick(index)}

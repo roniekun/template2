@@ -17,6 +17,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen, 
               setColor, showNavbar, isLoading,color}) => {
 
+
 const {scrollYProgress} = useScroll();
 
   const [s6Ref, inView] = useInView({
@@ -47,7 +48,8 @@ const {scrollYProgress} = useScroll();
     <>
     <div 
     className={styles.container}>
-             <div className={styles.imgContainer}>
+     <div  data-scroll data-scroll-speed="0.3" 
+      className={styles.imgContainer}>
         <img className={styles.heroImg} src="images/hero.jpg"  />
         </div>
       <PageWrapper>
@@ -55,8 +57,9 @@ const {scrollYProgress} = useScroll();
 
         <div className={styles.sectionOne}>
           <div className={styles.title}>
-          <h1 >Your Name </h1>
-          <motion.h1 >Photographer & Filmmaker</motion.h1>
+          <h1 data-scroll data-scroll-speed="0.5">
+            Your Name </h1>
+          <h1 >Photographer & Filmmaker</h1>
           <button onClick={scrollToCta}
                  className={styles.btn}>
             Start an appointment</button>
@@ -74,11 +77,10 @@ const {scrollYProgress} = useScroll();
         <div ref={toScrollRef} 
              className={styles.filler}>
         <div className={styles.fillerContent}>
-        <div className={styles.fillerContent}>
+        <h2 className={styles.fillerTitle}>Timeless</h2>
         <h1 >Transforming your special moments <br /> into timeless memories.</h1>
         <p>We craft unique and memorable experience through <br /> capturing raw 
           emotions that brings picturisque storytelling.</p>
-        </div>
         </div>
       
         <div  className={styles.imgContainerF}>

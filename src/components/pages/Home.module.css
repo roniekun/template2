@@ -140,10 +140,20 @@
 .fillerContent{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  gap:50px;
   position: relative;
-  height: 400px;
+  height: 700px;
   width: max-content;
+}
+
+.fillerTitle{
+  font-size: 100px;
+  position: absolute;
+  top: 20%;
+  color: black;
+  left: 50%;
+  transform:translate(-50%, 0%);
 }
 
 .filler h1{
