@@ -42,17 +42,22 @@ const Portfolio = ({
     gsap.registerPlugin(ScrollTrigger);
 
     imgRefs.forEach((imgRef) => {
-      gsap.fromTo(imgRef.current, {
-        scale: 1.2,
+      gsap.to(imgRef.current, {
+        opacity: 1, duration: .3, scale: 1,
         scrollTrigger: {
           trigger: imgRef.current,
           start: 'top 80%',
           end: 'center center',
-          scrub: true,
         },
-      }, { scale: 1, }
+      }
       );
     });
+
+
+  }, []);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
     loaders.forEach((loader) => {
       gsap.to(loader.current, {
@@ -65,7 +70,9 @@ const Portfolio = ({
         },
       });
     });
-  }, []);
+
+  }, [])
+  
 
   const handleClick = (index) => {
     setActiveItem(index);
@@ -160,7 +167,7 @@ const Portfolio = ({
                 className={styles.imageContainer}
               >
               <div 
-              ref={loaders[index]} 
+              ref={loaders[index]}
               className={styles.loader}>
               </div>
 
