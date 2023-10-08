@@ -37,7 +37,6 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
                       .to(title.current, {scale: 1.025}, "-=.5")
               }, [])
 
-
 const {scrollYProgress} = useScroll();
 
   const [s6Ref, inView] = useInView({
