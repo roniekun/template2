@@ -23,7 +23,7 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
 
     className={styles.container}>
       <div className={styles.body}>
-        <div className={styles.sectionOne}>
+        <div className={styles.sect1}>
 
            <h4> Bringing your events to life through the art of storytelling.</h4>
            <div className={styles.about}>
@@ -48,10 +48,10 @@ const About = ({isDesktop, setShowNavbar, isMediumScreen,
            </div>
         </div>
 
-        <div className={styles.sectionTwo}>
+        <div className={styles.sect2}>
           <h1>Skills</h1>
         </div >
-        <div className={styles.sectionThree}
+        <div className={styles.sect3}
         ><h1>Awards</h1></div>
       </div>
         <Cta/>

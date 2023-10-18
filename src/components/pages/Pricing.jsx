@@ -1,7 +1,6 @@
 import {useEffect} from 'react'
 import styles from './Pricing.module.css'
 import Footer from '../Footer'
-import PageWrapper from '../../PageWrapper'
 
 const Pricing = ({isDesktop,setShowNavbar,isMediumScreen, 
   isSmallScreen,showNavbar, setColor}) => {
@@ -12,11 +11,9 @@ const Pricing = ({isDesktop,setShowNavbar,isMediumScreen,
   return (
   <>
     <div className={styles.container}>
-    <PageWrapper>
     <div className={styles.body}>
       <h1>this is Pricing</h1>
     </div>
-    </PageWrapper>
      <Footer/>
     </div>
     </>

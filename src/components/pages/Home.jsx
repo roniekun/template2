@@ -8,7 +8,7 @@ import { NavLink} from 'react-router-dom'
 import { AnimatePresence, motion, useScroll} from "framer-motion"
 import  { ReactComponent as ScrollDown } from '../../../public/svg/arrowdown.svg'
 import  { ReactComponent as SeePortfolio } from '../../../public/svg/arrowinsert.svg'
-import { useInView } from 'react-intersection-observer';
+// import { useInView } from 'react-intersection-observer';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -31,35 +31,27 @@ const Home = ({isDesktop,setShowNavbar,isMediumScreen, isSmallScreen,
                   })
           
                   timeline
-                      .to(heroImg.current, {scale: 1})
-                      .to(heroImg.current, {clipPath: isDesktop ? `inset(5%)` : ''}, "-=.3")
-                      .to(title.current, {scale: 1.025}, "-=.5")
-              }, [])
+                      .to(heroImg.current, {scale: 1 })
+                      // .to(heroImg.current, {clipPath: isDesktop ? `inset(5%)` : ''}, "-=.3")
+              }, [ ])
 
-const {scrollYProgress} = useScroll();
-
-  const [s6Ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+  // const [s6, inView] = useInView({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
   useEffect(() => {
-    setColor("whitesmoke");
+    setColor("white");
   }, [])
 
-  const toCtaRef = useRef(null);
+  const toCta = useRef(null);
   const scrollToCta = () => {
-    toCtaRef.current.scrollIntoView({ behavior: 'smooth' });
+    toCta.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-   const toScrollRef = useRef(null);
+   const toScroll= useRef(null);
   const scroll = () => {
-    toScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    toScroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -80,7 +72,7 @@ const {scrollYProgress} = useScroll();
         </div>
       <div className={styles.body}>
 
-        <div className={styles.sectionOne}>
+        <div className={styles.sect1}>
          
           <div ref={title} className={styles.title}>
           <h1>
@@ -90,9 +82,8 @@ const {scrollYProgress} = useScroll();
           <button onClick={scrollToCta}
                  className={styles.btn}>
             Start an appointment</button>
-          
           </div>
-          
+
         <div className={styles.arrowdownContainer}>
            <h5>Scroll</h5>
             <div onClick={scroll} className={styles.arrowdown}>
@@ -101,7 +92,7 @@ const {scrollYProgress} = useScroll();
         </div>
         </div>
 
-        <div ref={toScrollRef} 
+        <div ref={toScroll} 
              className={styles.filler}>
         <div className={styles.fillerContent}>
         <h2 className={styles.fillerTitle}>Timeless</h2>
@@ -112,9 +103,6 @@ const {scrollYProgress} = useScroll();
       
         <div  className={styles.imgContainerF}>
         <motion.img
-          whileInView={{
-            y:scrollYProgress,
-          }}
           transition={{ duration: 0.3 }}
           className={styles.heroImgF}
           src="images/hero2.jpg"
@@ -131,7 +119,7 @@ const {scrollYProgress} = useScroll();
         </div>
    
 
-        <div className={styles.sectionTwo}>
+        <div className={styles.sect2}>
 
         <div className={styles.card1}>
         <p>We cover all types of events and different sizes</p>
@@ -142,7 +130,7 @@ const {scrollYProgress} = useScroll();
         </div>
         </div>
 
-        <div className={styles.sectionThree}>
+        <div className={styles.sect3}>
 
         <div className={styles.circle} id={styles.circle1}>
           <h2> 10 years of experience</h2>
@@ -155,7 +143,7 @@ const {scrollYProgress} = useScroll();
         </div>
         </div>
 
-        <div className={styles.sectionFour}>
+        <div className={styles.sect4}>
           <h1 className={styles.s4title}>
             Featured Events
           </h1>
@@ -164,28 +152,22 @@ const {scrollYProgress} = useScroll();
           </div>
         </div>
 
-        <div className={styles.sectionFive}>
+        <div className={styles.sect5}>
         <h1>Reviews</h1>
         </div>
   
         <motion.div 
-        ref={s6Ref}
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        variants={variants}
-        transition={{ duration: 0.3 }}
-        exit={{y: -20}}
-        className={styles.sectionSix}>
+        className={styles.sect6}>
           <h1>Frequently Asked Questions: </h1> 
           <p>(This is for Demo purpose only)</p>
           <FAQ />
         </motion.div>
 
-        <div className={styles.sectionSeven}>
+        <div className={styles.sect7}>
          <h1>Thank you for your support :)</h1>
         </div>
       </div>
-      <div className={styles.ctaContainer} ref={toCtaRef} >
+      <div className={styles.ctaContainer} ref={toCta} >
       <Cta isSmallScreen={isSmallScreen}/>
       </div>
       <Footer/>

@@ -10,10 +10,10 @@ const Navbar = ({ showNavbar,
                 setShowNavbar,  
                 isDesktop }) => {
 
-  const navbarContainerRef = useRef(null);
-  const navItemsRef = useRef(null);
-  const footerRef = useRef(null);
-  const logoRef = useRef(null);
+  const navbarContainer = useRef(null);
+  const navItems = useRef(null);
+  const footer = useRef(null);
+  const logo = useRef(null);
   
   useEffect(() => {
 
@@ -26,34 +26,34 @@ const Navbar = ({ showNavbar,
       duration:.3,
     };
   
-    gsap.to(navbarContainerRef.current, containerAnim);
-    gsap.to(navItemsRef.current,itemAnim);
-    gsap.to(footerRef.current, itemAnim);
-    gsap.to(logoRef.current, itemAnim);
+    gsap.to(navbarContainer.current, containerAnim);
+    gsap.to(navItems.current,itemAnim);
+    gsap.to(footer.current, itemAnim);
+    gsap.to(logo.current, itemAnim);
 
     
   }, [showNavbar,  isSmallScreen]);
 
   return (
           <nav 
-          ref={navbarContainerRef}
+          ref={navbarContainer}
           className={`${styles.navbarContainer}`}>
             
-          <div ref={navItemsRef}
+          <div ref={navItems}
               className={styles.navbarWrapper}>
           <NavbarLinks 
           showNavbar={showNavbar}
           setShowNavbar={setShowNavbar}
           isSmallScreen={isSmallScreen}
-          NavbarLinksContainer={{flexDirection: 'column', display: 'flex', 
+          containerProps={{flexDirection: 'column', display: 'flex', 
           alignItems: 'center', width: '100%'}}
-          NavbarLinksWrapper={{ backgroundColor: 'transparent',paddingBlock: '.5em'}}
-          NavbarLinksLink={{textTransform: 'capitalize',
+          wrapperProps={{ backgroundColor: 'transparent',paddingBlock: '.5em'}}
+          linkProps={{textTransform: 'capitalize',
                             color: 'gray',
                             fontWeight: '700', 
                             fontSize: window.innerHeight > 500 ? '32px' : '24px'}}/>
         </div >
-         <div ref={footerRef} 
+         <div ref={footer} 
          style={{ position: 'relative', 
                           display: 'flex',
                           justifyContent: 'center',
@@ -69,7 +69,7 @@ const Navbar = ({ showNavbar,
                                               Socials</h3>
             <div style={{marginBlock: '10px'}}>
             <Socials
-             navSocialLink={{
+             linkProps={{
               display: 'flex',
               justifyContent: 'center', 
               alignItems: 'center', 

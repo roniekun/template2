@@ -8,13 +8,7 @@ const NavbarLinks = ({
   wrapperProps,
   showNavbar,
   setShowNavbar,
-  footerContainer,
-  footerNavbarLink,
-  footerNavbarWrapper,
-  ContactNavbarLinks,
-  NavbarLinksContainer,
-  NavbarLinksWrapper,
-  NavbarLinksLink,
+  containerProps,
   }) => {
 
   const location = useLocation();
@@ -27,14 +21,14 @@ const NavbarLinks = ({
     { to: '/contact', text: 'contact  ' },
     
   ];
-  const containerRef = useRef(null);
-  const navbarlinkRefs = links.map(() => useRef(null));
+  const container= useRef(null);
+  const navbarlinks = links.map(() => useRef(null));
 
   useEffect(() => {
     if (showNavbar) {
-      navbarlinkRefs.forEach((navbarlinkRef, index) => {
+      navbarlinks.forEach((navbarlink, index) => {
         gsap.fromTo(
-          navbarlinkRef.current, 
+          navbarlink.current, 
           { 
             opacity: 1
           },
@@ -57,22 +51,17 @@ const NavbarLinks = ({
     
   };
   return (
-    <div style={{
-                ...ContactNavbarLinks,
-                ...NavbarLinksContainer,
-                ...footerContainer
-                }}
+    <div style={{ ...containerProps, }}
           className={styles.linksContainer}
-          ref={containerRef}>
+          ref={container}>
       
           {links.map((link, index) => (
-          <div style={{...NavbarLinksWrapper,...footerNavbarWrapper,...wrapperProps}} 
-          className={styles.linkWrapper}key={link.to}>
+          <div style={{...wrapperProps}} 
+          className={styles.linkWrapper}
+          key={link.to}>
           <NavLink
-            style={{...NavbarLinksLink,
-                    ...footerNavbarLink,
-                   ...linkProps}}
-            ref={navbarlinkRefs[index]}
+            style={{...linkProps}}
+            ref={navbarlinks[index]}
             onClick={() => handleLinkClick(link.to)}
             className={`${styles.navbarLink} ${location.pathname === link.to ? styles.activeLink : ''}`}
            >

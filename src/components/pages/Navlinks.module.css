@@ -51,6 +51,8 @@
   user-select: none;
   text-align: right;
   line-height: 1em;
+  transition: .3s;
+  opacity:  .8;
 }
 
 @media (max-width: 600px) {

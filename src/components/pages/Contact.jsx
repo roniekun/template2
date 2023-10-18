@@ -27,7 +27,7 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
     <div className={styles.body}>
      <h2 className={styles.heading}>Let me know about the project <br /> you are working with.</h2>
 
-    <div className={styles.sectionOne}>
+    <div className={styles.sect1}>
     <div className={styles.formContainer}>
      <ContactForm/>
     </div>
@@ -42,8 +42,8 @@ const Contact = ({isDesktop, setShowNavbar, isMediumScreen,
     <div className={styles.socialContainer}>
        <h5 className={styles.title}>Digital Spaces</h5>
      <Socials 
-     contactContainer={{flexDirection:'column', alignItems: 'flex-start'}}
-     contactSocialLink={{fontSize: '16px', color: 'black', lineHeight: '1.5em'}}
+     containerProps={{flexDirection:'column', alignItems: 'flex-start'}}
+     linkProps={{fontSize: '16px', color: 'black', lineHeight: '1.5em'}}
      displayNames={true}/>
      </div>
 

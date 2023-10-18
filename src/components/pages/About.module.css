@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.sectionOne {
+.sect1{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,7 @@
   font-weight: 450;
 }
 
-.sectionOne > h4 {
+.sect1> h4 {
   font-size: 45px;
   font-weight: 400;
 }
@@ -79,7 +79,7 @@
 }
 
 @media (max-width: 1024px) {
-  .sectionOne{
+  .sect1{
     gap:20px;
   }
   .about{
@@ -118,7 +118,7 @@
   }
 }
 
-.sectionTwo {
+.sect2 {
   min-height: 800px;
   width: 100%;
   display: flex;
@@ -128,7 +128,7 @@
   font-weight: 450;
 }
 
-.sectionThree {
+.sect3{
   min-height: 800px;
   width: 100%;
   display: flex;

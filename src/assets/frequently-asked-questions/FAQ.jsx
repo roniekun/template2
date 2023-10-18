@@ -37,7 +37,7 @@ const FAQ = () => {
             <div key={index} className={styles.questionContainer}>
             <p className={styles.question}> 
               <span>
-                {index+1}.</span>  {faqItem.question}</p>
+                 0{index+1}.</span>  { faqItem.question}</p>
             </div>
             {expandedIndex === index && (
               <div className={styles.answerContainer}>

@@ -160,7 +160,7 @@ const Portfolio = ({
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>Portfolio</h1>
             </div>
-          <div className={styles.sectionOne}>
+          <div className={styles.sect1}>
   
             {imageArray.map((images, index) => (
               <div

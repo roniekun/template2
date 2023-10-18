@@ -4,7 +4,6 @@ import Socials from '../assets/icons/Socials';
 
 const Footer = ({ setShowNavbar, isSmallScreen }) => {
   const date = new Date();
-  const currentYear = date.getFullYear(); 
 
   return (
     <div className={styles.container}>
@@ -18,18 +17,18 @@ const Footer = ({ setShowNavbar, isSmallScreen }) => {
           <h5>socials</h5>
           <Socials
             displayNames={ true }
-            footerContainer={{ gap: '24px',justifyContent: 'flex-start'}}
-            footerSocialLink={{
+            containerProps={{ gap: '24px',justifyContent: 'flex-start'}}
+           linkProps={{
               fill: 'lightgray',
               fontSize: '14px',
               fontWeight: '450',
               color: 'lightgray',
-            }}
-          />
+            }}/>
+            
         </div>
         <div className={styles.textContainer}>
         <h5>version</h5>
-        <p> &copy; {currentYear}, all rights reserved</p>
+        <p> &copy; {date.getFullYear()}, all rights reserved</p>
         </div>
       </div>
     </div>

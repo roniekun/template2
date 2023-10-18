@@ -9,15 +9,9 @@ const Socials = ({
       displayNames, 
       displayHandles, 
       displayIcons, 
-      navSocialLink,
-      contactContainer,
-      contactSocialLink,
-      contactIconContainer,
-      footerIconContainer,
-      footerContainer,
-      footerSocialLink,
-      headerIconContainer,
-      headerSocialLink,
+      linkProps,
+      iConProps,
+      containerProps,
 }) => {
 
   const socialMediaLinks = [
@@ -53,22 +47,17 @@ const Socials = ({
   return (
   
         <div className={styles.socialLinksContainer} 
-        style={{...contactContainer,...footerContainer}}>
+        style={{...containerProps}}>
           {socialMediaLinks.map((link) => (
             <div         
-              style={{ ...contactIconContainer,...footerIconContainer,...headerIconContainer}} 
+              style={{...iConProps}} 
               key={link.name}
               className={styles.iconContainer}>  
                 <a
                   href={link.url}
                   key={link.name}
                   target="_blank"
-                  style={{
-                    ...footerSocialLink,
-                    ...navSocialLink,
-                    ...contactSocialLink,
-                    ...headerSocialLink
-                  }}
+                  style={{...linkProps }}
                   className={styles.socialLink}
                   rel="noopener noreferrer">
                    {displayNames &&link.name}
