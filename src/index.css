@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CUSTOM FONTS */
+.font-primary{
+    font-family: "Orbitron", sans-serif;
+}
+.font-secondary{
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+
+}
+.font-tertiary{
+  font-family: "Neue Montreal", sans-serif;
+  font-optical-sizing: auto;
+}
+
+/* CUSTOM CSS */
+::selection{
+  background-color: greenyellow;
+  color: black;
+}
+::-webkit-scrollbar {
+  display: none;
+}

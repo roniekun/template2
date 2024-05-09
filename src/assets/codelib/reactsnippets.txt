@@ -1,0 +1,2 @@
+//spreading ref from an array
+                                            ref={(el) => (refArray.current[index] = el)}
