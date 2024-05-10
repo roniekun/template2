@@ -35,7 +35,7 @@ const Navbar = () => {
             className='flex flex-col w-fit justify-start relative mt-5 items-center text-xl h-auto gap-5 opacity-1'>
           
                   {links.map((link, idx) => (
-                  <div className='flex w-fit justify-center relative items-center group overflow-hidden'>
+                  <div className='flex w-fit justify-center relative items-center group h-[8vh] overflow-hidden'>
                       <Link
                       onClick={handleClick}
                       to={link.to}
