@@ -1,22 +1,20 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Logo = () => {
-  const navigate = useNavigate()
   const handleClick=()=>{
-    navigate("/", )
-    setTimeout(() => {
-          window.scrollTo({top: 0, behavior:"smooth"})
-    }, 300);
+      window.scrollTo({top: 0})
   }
   return (
-    <main
+    <Link
+     to="/"
     className='cursor-pointer'
      onClick={handleClick}>
-      <h1 className='font-medium md:text-xl text-lg bg-slate-950 text-neutral-50 p-1'>
+      <h3
+       className='font-medium md:text-xl text-lg bg-slate-950 text-neutral-50 p-1'>
       Studio.
-      </h1>
-    </main>
+      </h3>
+    </Link>
   )
 }
 

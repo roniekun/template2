@@ -1,11 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Header from '../../component/header'
-import { useLocation } from 'react-router-dom'
+import { motion} from 'framer-motion'
 import { DataContext } from '../../context/DataContext'
 
 export default function PageTransition({children}) {
-    const location = useLocation()
     const { isLoading } = useContext(DataContext)
 
     const anim = (variants) => {
@@ -72,12 +69,10 @@ export default function PageTransition({children}) {
     }
 
     return (
-       <AnimatePresence>
             <motion.div 
-              className='opacity-0' {...anim(opacity)}>
+              className='opacity-0' 
+              {...anim(opacity)}>
                   { children }
             </motion.div>
-        </AnimatePresence>
-  
     )
 }
