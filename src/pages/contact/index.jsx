@@ -1,8 +1,7 @@
 import React from 'react'
 import { useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
-import Footer from '../../component/footer'
-import PageAnimator from '../../assets/anim/PageTransition'
+import PageTransition from '../../assets/anim/PageTransition'
 
 const Contact = () => {
     const { user, setTitle } = useContext(DataContext)
@@ -13,11 +12,13 @@ const Contact = () => {
       }, [location.pathname])
 
   return (
-    <PageAnimator>
+    <PageTransition>
       <main className='min-h-screen bg-gray-100'>
-        <div className='h-screen'></div>
+        <div className='h-screen'>
+          Contact
+        </div>
       </main>
-    </PageAnimator>
+    </PageTransition>
   )
 }
 

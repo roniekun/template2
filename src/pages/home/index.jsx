@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataContext } from '../../context/DataContext'
 import { useRef, useEffect, useContext } from 'react'
-import Footer from '../../component/footer'
+import PageTransition from '../../assets/anim/PageTransition'
 
 const Home = () => {
   const {setTitle, user} = useContext(DataContext)
@@ -15,6 +15,7 @@ const Home = () => {
   }
 
   return (
+  <PageTransition>
       <motion.main
         className='relative flex flex-col top-0'>
         <section className='min-h-screen flex flex-col py-5'>
@@ -31,6 +32,7 @@ const Home = () => {
             className='self-center relative text-center w-fit border p-1 m-1'>View Gallery</button>
         </section>
     </motion.main>
+  </PageTransition>
   )
 }
 

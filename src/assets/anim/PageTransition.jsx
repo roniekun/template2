@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Header from '../../component/header'
 import { useLocation } from 'react-router-dom'
 import { DataContext } from '../../context/DataContext'
@@ -28,7 +28,7 @@ export default function PageTransition({children}) {
           }
        },
        leave:{
-          opacity: 1,
+          opacity: 0,
           transition:{
             duration: .3
           }
@@ -72,11 +72,12 @@ export default function PageTransition({children}) {
     }
 
     return (
-        <motion.main >
-                  <motion.div {...anim(opacity)}
-                  className='bg-stone-300' >
-                      { children }
-                  </motion.div>
-        </motion.main>
+       <AnimatePresence>
+            <motion.div 
+              className='opacity-0' {...anim(opacity)}>
+                  { children }
+            </motion.div>
+        </AnimatePresence>
+  
     )
 }
