@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DataContext } from '../../context/DataContext'
 import { useRef, useEffect, useContext } from 'react'
 import PageTransition from '../../assets/anim/PageTransition'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const {setTitle, user} = useContext(DataContext)
@@ -9,10 +10,6 @@ const Home = () => {
     location.title = 'Home'
     setTitle(`${location.title} - ${user.title} `)
   }, [location.pathname])
-
-  const handleClick = () => {
-    console.log("navigate to gallery")
-  }
 
   return (
   <PageTransition>
@@ -27,9 +24,9 @@ const Home = () => {
           <div className='h-[500px] border rounded-lg border-slate-500 my-10 mx-[5vw]'>
             <img src="" alt="" />
           </div>
-          <button 
-            onClick={handleClick}
-            className='self-center relative text-center w-fit border p-1 m-1'>View Gallery</button>
+          <Link to="/gallery"
+            onClick={()=> window.scrollTo({top}) }
+            className='self-center relative text-center w-fit border p-1 m-1'>View Gallery</Link>
         </section>
     </motion.main>
   </PageTransition>

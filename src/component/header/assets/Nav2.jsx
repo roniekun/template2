@@ -21,6 +21,7 @@ const Nav = () => {
     //  const handleClick = (link) => {
     //         navigate(link, {replace: true})
     // }    
+    
     return (
         <main className='gap-14 flex items-center  relative  justify-center h-full w-fit'>
             {links.map((link,idx) => (
@@ -29,6 +30,7 @@ const Nav = () => {
                  className={`relative flex justify-center items-center flex-col cursor-pointer group`}>
                     <Link
                     to={link.to}
+                    // onClick={()=> window.scrollTo({top})}
                     className={`cursor-pointer text-md relative flex flex-col group justify-center uppercase text-black
                     items-center`}
                     key={link.name}>
