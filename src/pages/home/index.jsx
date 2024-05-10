@@ -19,7 +19,7 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section className='min-h-screen flex flex-col py-5'>
          <div className='px-[5vw] mt-28'>
-          <span className='text-2xl indent-10 md:indent-20 text-balance bg-gradient-to-l  bg-clip-text text-transparent from-pink-500 via-blue-800 to-black'>
+          <span className='text-2xl indent-10 md:indent-20 text-balance'>
               Amet blanditiis quam aliquam, at molestias, ducimus veritatis placeat expedita nesciunt debitis eligendi accusamus odio. Nemo fuga corporis consectetur.
          </span>
          </div>
@@ -30,15 +30,6 @@ const Home = () => {
             onClick={handleClick}
             className='self-center relative text-center w-fit border p-1 m-1'>View Gallery</button>
         </section>
-
-      {/* footer */}
-      <section 
-      className='z-10'>
-      <div></div>
-        <div className='lg:col-span-2 sm:w-full'>
-              <Footer />
-        </div>
-      </section>
     </motion.main>
   )
 }

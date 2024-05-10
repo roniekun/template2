@@ -68,6 +68,17 @@ const DataProvider = ({ children  }) => {
           }
         }, [])
 
+        //toggling menu
+        useEffect(() => {
+            if(isToggleMenu){
+              document.body.style.overflow="hidden"
+            }
+              else{
+                document.body.style.overflow="scroll"
+              }
+        }, [isToggleMenu])
+        
+
   return (
     <DataContext.Provider 
       value={{

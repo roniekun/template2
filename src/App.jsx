@@ -3,10 +3,12 @@ import LoadingTransition from "./assets/anim/LoadingTransition";
 import Header from "./component/header";
 import Navbar from "./component/navbar";
 import Home from "./pages/home";
+import Contact from "./pages/contact";
+import { About } from "./pages/about";
 import Gallery from "./pages/gallery"
+import Footer from "./component/footer";
 import Notfound from "./pages/notfound"
 import Lenis from '@studio-freight/lenis'
-import Cookie from "./assets/cookie/Cookie";
 import gsap from "gsap";
 import Scrollbtn from "./assets/scrollto"
 import { ScrollTrigger } from "gsap/all"
@@ -16,7 +18,7 @@ import { useScroll, useTransform, AnimatePresence, motion} from 'framer-motion'
 import { DataContext } from "./context/DataContext";
 
 function App() {
-  const {isMobile} = useContext(DataContext)
+  const {isMobile, isToggleMenu} = useContext(DataContext)
   const { id } = useParams()
   const {width} =useWindowSize()
   const location = useLocation();
@@ -57,11 +59,14 @@ function App() {
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
               <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/contact" element={<Contact />} />
              <Route path="/:id/" element={<Home />} />
              <Route path="/gallery/" element={<Gallery />} />
             <Route path="/gallery/:id/" element={<Gallery />} />
             <Route  path="*" element={<Notfound/>} />
           </Routes>
+          <Footer />
         </AnimatePresence>
         </main>
   );

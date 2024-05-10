@@ -16,9 +16,6 @@ const Contact = () => {
     <PageAnimator>
       <main className='min-h-screen bg-gray-100'>
         <div className='h-screen'></div>
-      <section>
-        <Footer />
-      </section>
       </main>
     </PageAnimator>
   )
