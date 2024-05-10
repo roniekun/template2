@@ -1,5 +1,5 @@
 import React from 'react'
-import SendGmail from '../../assets/SendGmail'
+import SendToGmail from '../../assets/SendToGmail'
 import { useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 
@@ -8,7 +8,7 @@ const Footer = () => {
     const date = new Date()
 
     const handleClick = (user) =>{  
-            SendGmail(user)
+            SendToGmail(user)
     }
 
   return (

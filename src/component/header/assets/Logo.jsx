@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { DataContext } from '../../../context/DataContext'
 
 const Logo = () => {
+  const {setToggleMenu} = useContext(DataContext)
   const handleClick=()=>{
       window.scrollTo({top: 0})
+      setToggleMenu(false)
   }
   return (
     <Link
