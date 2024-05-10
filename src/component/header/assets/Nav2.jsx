@@ -21,7 +21,7 @@ const Nav = () => {
     //  const handleClick = (link) => {
     //         navigate(link, {replace: true})
     // }    
-    
+
     return (
         <main className='gap-14 flex items-center  relative  justify-center h-full w-fit'>
             {links.map((link,idx) => (

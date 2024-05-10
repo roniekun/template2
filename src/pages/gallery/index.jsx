@@ -31,9 +31,6 @@ const Gallery = () => {
           <Invalid/> 
           }
         </div>
-      <section>
-        <Footer />
-      </section>
     </main>
     </PageAnimator>
   )
